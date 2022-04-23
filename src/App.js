@@ -35,11 +35,6 @@ function App() {
 			page: <ChessPage child={true} />,
 			theme: 'light',
 		},
-		// {
-		// 	path: '/',
-		// 	page: <StartPageMobile child={true} />,
-		// 	theme: 'dark',
-		// },
 	];
 
 	const pageNum = getPageNum();
@@ -224,13 +219,18 @@ function App() {
 			// 		{next_page()}
 			// 	</animated.div>
 			// </PageContext.Provider>
-			<PageContext.Provider value={[pageContext, setPageContext]}>
-				<StartPageMobile />
-				<MobileMenu />
-				<JazzPageMobile />
-				<ArtistPageMobile />
-			</PageContext.Provider>
-			
+			// <PageContext.Provider value={[pageContext, setPageContext]}>
+			// 	<StartPageMobile />
+			// 	<MobileMenu />
+			// 	<JazzPageMobile />
+			// 	<ArtistPageMobile />
+			// </PageContext.Provider>
+			<>
+			<StartPageMobile />
+			<MobileMenu />
+			<JazzPageMobile />
+			<ArtistPageMobile />
+			</>
 		);
 	}
 }

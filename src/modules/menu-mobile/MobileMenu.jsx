@@ -8,14 +8,14 @@ import './mobille_menu.scss'
 import '../../fonts/fonts.scss'
 
 function MobileMenu() {
-  const [page, setPage] = useContext(PageContext);
-	const params = page.pages[page.current];
-	const [menuState, setMenuState] = useState(false);
-	console.log(params);
-	const theme = {
-		background: page.pages[page.current].theme === 'dark' && !menuState ? '#000' : '#fff',
-		borderRight: page.pages[page.current].theme === 'dark' && !menuState ? '1px solid #F4F3F3' : '1px solid #F4F3F3',
-	};
+  // const [page, setPage] = useContext(PageContext);
+	// const params = page.pages[page.current];
+	// const [menuState, setMenuState] = useState(false);
+	// console.log(params);
+	// const theme = {
+	// 	background: page.pages[page.current].theme === 'dark' && !menuState ? '#000' : '#fff',
+	// 	borderRight: page.pages[page.current].theme === 'dark' && !menuState ? '1px solid #F4F3F3' : '1px solid #F4F3F3',
+	// };
 	// const buttons = {
 	// 	vk: page.pages[page.current].theme === 'dark' && !menuState ? light_vk : vk,
 	// 	inst: page.pages[page.current].theme === 'dark' && !menuState ? light_inst : inst,
@@ -46,8 +46,10 @@ function MobileMenu() {
     <div className="mobilemenu hide">
       <div className="mobile__container">
         <MobileMenuHeader />
-        <MobileMenulist displayed={menuState} transit_to={0} />
-        <MobileMenuCommunication displayed={menuState} transit_to={0} />
+        {/* <MobileMenulist displayed={menuState} transit_to={0} /> */}
+        {/* <MobileMenuCommunication displayed={menuState} transit_to={0} /> */}
+				 <MobileMenulist />
+         <MobileMenuCommunication />
       </div>
     </div>
 

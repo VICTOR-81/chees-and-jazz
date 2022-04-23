@@ -18,7 +18,7 @@ import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
 import { PageContext } from '../../../PageContext';
 
 function StartPageMobile(params) {
-  const [page, setPage] = useContext(PageContext);
+  // const [page, setPage] = useContext(PageContext);
 
   return (
 
