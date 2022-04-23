@@ -10,6 +10,9 @@ import artist2 from '../../../assets/images/heap/Portico_Quartet.png';
 import artist1 from '../../../assets/images/heap/image_82.png';
 import artist_detail1 from '../../../assets/images/artists/agutin.jpg';
 import artist_detail2 from '../../../assets/images/artists/portico-quartet.jpg';
+import asterisk from '../../../assets/icons/star.svg';
+
+import './jazz_page_mobile.scss';
 
 import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
 // import ArtistSquare from './artist_square/ArtistSquare';
@@ -20,7 +23,7 @@ function JazzPageMobile() {
 
   return(
 
-    <div class="mobile-container">
+    <div class="mobile-container hide">
             <div class="m-menu">
                 <div class="m-menu__btn">
                     <div class="m__btn_top"></div>
@@ -30,13 +33,13 @@ function JazzPageMobile() {
                 </div>
                 <div class="m-menu__content">
                     <span>30-31 июля 20221</span>
-                    <img src="assets/icons/star.svg" alt="" />
+                    <img src={asterisk} alt="" />
                     <span>Сад «Эрмитаж2»</span>
-                    <img src="assets/icons/star.svg" alt="" />
+                    <img src={asterisk} alt="" />
                     <span>30-31 июля 20223</span>
-                    <img src="assets/icons/star.svg" alt="" />
+                    <img src={asterisk} alt="" />
                     <span>Сад «Эрмитаж»4</span>
-                    <img src="assets/icons/star.svg" alt="" />
+                    <img src={asterisk} alt="" />
                     <span>30-31 июля 20225</span>
                 </div>
                 <div class="m-menu__buy">
@@ -46,7 +49,7 @@ function JazzPageMobile() {
             </div>
 
 
-            <div class="m-content">
+            <div class="m-content m-content-jazz">
 
                 <div class="jazz-marquee-w">
                     <div class="jazz-marquee ">
@@ -60,14 +63,14 @@ function JazzPageMobile() {
                 <div class="m-cards__container">
                     <div class="m-card">
                         <div class="m-card__pic">
-                            <img src="assets/images/image 66.png" alt="" />
+                            <img src={artist2} alt="" />
                         </div>
                         <div class="m-card__date">30 июля, 20:00</div>
                         <div class="m-card__name">Jordan Raikey</div>
                     </div>
                     <div class="m-card">
                         <div class="m-card__pic">
-                            <img src="assets/images/image 82.png" alt="" />
+                            <img src={artist1} alt="" />
                         </div>
                         <div class="m-card__date">30 июля, 21:00</div>
                         <div class="m-card__name">Леонид Агутин</div>

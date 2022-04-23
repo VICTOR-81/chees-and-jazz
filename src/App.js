@@ -16,6 +16,7 @@ import isDesktop from './scripts/isDesktop';
 
 import logo from './logo.svg';
 import './App.css';
+import ArtistPageMobile from './modules/artist_page-mobile/ArtistPageMobile';
 
 function App() {
 	const pages = [
@@ -227,6 +228,7 @@ function App() {
 				<StartPageMobile />
 				<MobileMenu />
 				<JazzPageMobile />
+				<ArtistPageMobile />
 			</PageContext.Provider>
 			
 		);

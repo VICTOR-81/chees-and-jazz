@@ -43,7 +43,7 @@ function MobileMenu() {
 
   return (
 
-    <div className="mobilemenu">
+    <div className="mobilemenu hide">
       <div className="mobile__container">
         <MobileMenuHeader />
         <MobileMenulist displayed={menuState} transit_to={0} />
