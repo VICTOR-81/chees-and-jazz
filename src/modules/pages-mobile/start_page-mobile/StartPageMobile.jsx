@@ -53,7 +53,7 @@ function StartPageMobile(params) {
                     <p>БИЛЕТ</p>
                 </div>
             </div>
-            <div class="m-content">
+            <div class="m-content m-content-sp">
                 <div class="m-header">
                   <img src={heading} alt="" />
                 </div>

@@ -88,12 +88,12 @@ body {
 			width: inherit;
 	}
 }
-.m-content{
-	height: calc(100vh - 48px);
-	display: flex;
-	flex-direction: column;
-}
+// .m-content{
+// 	height: calc(100vh - 48px);
+// 	display: flex;
+// 	flex-direction: column;
+// }
 
-.hide{
-	display: none;
+.m-content-sp{
+	height: calc(100vh - 48px);
 }
