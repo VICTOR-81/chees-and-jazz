@@ -30,7 +30,7 @@ function StartPageMobile(params) {
 				{/* <div className="right-part"> */}
 					
 
-      <div class="hide mobile-container">
+      <div class="mobile-container">
             <div class="m-menu">
                 <div class="m-menu__btn">
                     <div class="m__btn_top"></div>

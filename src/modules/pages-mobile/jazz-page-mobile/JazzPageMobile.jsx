@@ -23,7 +23,7 @@ function JazzPageMobile() {
 
   return(
 
-    <div class="mobile-container hide">
+    <div class="mobile-container">
             <div class="m-menu">
                 <div class="m-menu__btn">
                     <div class="m__btn_top"></div>

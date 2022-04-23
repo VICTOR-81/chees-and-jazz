@@ -10,7 +10,8 @@ import ChessPage from './modules/pages/chess_page/ChessPage';
 import MenuBar from './modules/menu/MenuBar';
 import MobileMenu from './modules/menu-mobile/MobileMenu';
 import StartPageMobile from './modules/pages-mobile/start_page-mobile/StartPageMobile';
-import JazzPageMobile from './modules/pages-mobile/jazz-mobile/JazzPageMobile';
+import JazzPageMobile from './modules/pages-mobile/jazz-page-mobile/JazzPageMobile';
+import ChessPageMobile from './modules/pages-mobile/chess-page-mobile/ChessPageMobile';
 
 import isDesktop from './scripts/isDesktop';
 
@@ -45,7 +46,7 @@ function App() {
 	const [page, setPage] = useState(pageNum);
 	const [helper, setHelper] = useState(true);
 	const [anim, setAnim] = useState('');
-	const [version, setVersion] = useState('desktop');
+	const [version, setVersion] = useState(isDesktop() ? 'desktop' : 'mobile');
 	const [pageContext, setPageContext] = useState({
 		pages,
 		current: getPageNum(),
@@ -75,18 +76,7 @@ function App() {
 			window.removeEventListener('resize', rz);
 			window.removeEventListener('wheel', window.handlePageScroll);
 		};
-	}, [helper]);
-
-	window.handlePageScroll = function handlePageScroll(scroll) {
-		if (pageContext.context === 'page') {
-			if (scroll.deltaY == 100 && pageContext.current !== pages.length - 1) {
-				pageContext.swipeForward();
-			} else if (scroll.deltaY == -100 && pageContext.current !== 0) {
-				pageContext.swipeBack();
-			}
-		}
-	};
-	console.log(pageContext);
+	}, [helper, version]);
 
 	function getPageNum() {
 		for (let i = 0; i < pages.length; i++) {
@@ -132,17 +122,32 @@ function App() {
 	} else {
 		window.removeEventListener('wheel', window.handlePageScroll);
 	}
+	window.handlePageScroll = function handlePageScroll(scroll) {
+		if (pageContext.context === 'page') {
+			if (scroll.deltaY == 100 && pageContext.current !== pages.length - 1) {
+				pageContext.swipeForward();
+			} else if (scroll.deltaY == -100 && pageContext.current !== 0) {
+				pageContext.swipeBack();
+			}
+		}
+	};
 
 	function rz() {
 		if (isDesktop()) {
 			setVersion('desktop');
-		} else setVersion('mobile');
+			document.body.style.overflow = 'hidden';
+		} else {
+			setVersion('mobile');
+			document.body.style.overflow = 'scroll';
+		}
 		console.log(version);
 	}
 
 	window.addEventListener('resize', rz);
 
 	if (version === 'desktop') {
+		document.body.style.overflow = 'hidden';
+
 		return (
 			<PageContext.Provider value={[pageContext, setPageContext]}>
 				<MenuBar />
@@ -182,7 +187,9 @@ function App() {
 			</PageContext.Provider>
 		);
 	} else if (version === 'mobile') {
-		return ( /*<h1>Mobile</h1>;*/
+		document.body.style.overflow = 'scroll';
+		return (
+			/*<h1>Mobile</h1>;*/
 			// <PageContext.Provider value={[pageContext, setPageContext]}>
 			// 	{/* <MobileMenu /> */}
 			// 	<animated.div
@@ -226,10 +233,11 @@ function App() {
 			// 	<ArtistPageMobile />
 			// </PageContext.Provider>
 			<>
-			<StartPageMobile />
-			<MobileMenu />
-			<JazzPageMobile />
-			<ArtistPageMobile />
+				<StartPageMobile />
+				<MobileMenu />
+				<JazzPageMobile />
+				<ArtistPageMobile />
+				<ChessPageMobile />
 			</>
 		);
 	}
