@@ -10,6 +10,7 @@ import ChessPage from './modules/pages/chess_page/ChessPage';
 import MenuBar from './modules/menu/MenuBar';
 import MobileMenu from './modules/menu-mobile/MobileMenu';
 import StartPageMobile from './modules/pages-mobile/start_page-mobile/StartPageMobile';
+import JazzPageMobile from './modules/pages-mobile/jazz-mobile/JazzPageMobile';
 
 import isDesktop from './scripts/isDesktop';
 
@@ -225,6 +226,7 @@ function App() {
 			<PageContext.Provider value={[pageContext, setPageContext]}>
 				<StartPageMobile />
 				<MobileMenu />
+				<JazzPageMobile />
 			</PageContext.Provider>
 			
 		);
