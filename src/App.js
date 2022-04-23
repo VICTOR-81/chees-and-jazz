@@ -12,6 +12,8 @@ import MobileMenu from './modules/menu-mobile/MobileMenu';
 import StartPageMobile from './modules/pages-mobile/start_page-mobile/StartPageMobile';
 import JazzPageMobile from './modules/pages-mobile/jazz-page-mobile/JazzPageMobile';
 import ChessPageMobile from './modules/pages-mobile/chess-page-mobile/ChessPageMobile';
+import EventsPageMobile from './modules/pages-mobile/events-page-mobile/EventsPageMobile';
+import FinalPageMobile from './modules/pages-mobile/final-page-mobile/FinalPageMobile';
 
 import isDesktop from './scripts/isDesktop';
 
@@ -238,6 +240,8 @@ function App() {
 				<JazzPageMobile />
 				<ArtistPageMobile />
 				<ChessPageMobile />
+				<EventsPageMobile />
+				<FinalPageMobile />
 			</>
 		);
 	}
