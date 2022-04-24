@@ -2,6 +2,9 @@ import React from "react";
 
 import './final_page_mobile.scss';
 import asterisk from '../../../assets/icons/star.svg';
+import instainst from '../../../assets/icons/instainst.svg';
+import vkvk from '../../../assets/icons/vkvk.svg';
+import youtubeyt from '../../../assets/icons/youtubeyt.svg';
 
 function FinalPageMobile() {
 
@@ -52,9 +55,15 @@ function FinalPageMobile() {
                     <div class="m_socials_mail"> INFO@CHESSANDJAZZ.COM</div>
                     <div class="m_socials-copy"> &copy;&nbsp;2022. Все права защищены</div>
                     <div class="m_socials-icons">
-                        <button class="socials__btn"><img src="assets/icons/instainst.svg" alt="" /></button>
-                        <button class="socials__btn"> <img src="assets/icons/vkvk.svg" alt="" /></button>
-                        <button class="socials__btn"><img src="assets/icons/youtubeyt.svg" alt="" /></button>
+                        <button class="socials__btn">
+                            <img src={instainst} alt="" />
+                        </button>
+                        <button class="socials__btn">
+                            <img src={vkvk} alt="" />
+                        </button>
+                        <button class="socials__btn">
+                            <img src={youtubeyt} alt="" />
+                        </button>
                     </div>
                 </div>
               </div>
