@@ -7,6 +7,7 @@ import { PageContext } from './PageContext';
 import StartPage from './modules/pages/start_page/StartPage';
 import JazzPage from './modules/pages/jazz_page/JazzPage';
 import ChessPage from './modules/pages/chess_page/ChessPage';
+import FinalPage from './modules/pages/final_page/FinalPage';
 import MenuBar from './modules/menu/MenuBar';
 import MobileMenu from './modules/menu-mobile/MobileMenu';
 import StartPageMobile from './modules/pages-mobile/start_page-mobile/StartPageMobile';
@@ -37,6 +38,11 @@ function App() {
 			path: '/chess',
 			page: <ChessPage child={true} />,
 			theme: 'light',
+		},
+		{
+			path: '/final',
+			page: <FinalPage child={true} />,
+			theme: 'dark',
 		},
 	];
 
@@ -182,6 +188,7 @@ function App() {
 							<Route exact path="/" element={<StartPage />} />
 							<Route path="/jazz" element={<JazzPage />} />
 							<Route path="/chess" element={<ChessPage />} />
+							<Route path="/final" element={<FinalPage />} />
 						</Routes>
 					</Suspense>
 					{next_page()}
