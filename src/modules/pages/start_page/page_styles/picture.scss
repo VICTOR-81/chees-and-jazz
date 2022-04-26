@@ -1,8 +1,9 @@
 .main-page__picture {
 	height: 62vh;
 	width: 100%;
+	position: relative;
 
-	span {
+	& > span {
 		display: block;
 		position: relative;
 		height: 100%;
@@ -12,10 +13,11 @@
 
 .main-page__picture img {
 	width: 100%;
-	height: 62vh;
+	height: calc(62vh - 56px);
 	transition: all ease 0.5s;
 	object-fit: cover;
 	position: absolute;
+	display: block;
 }
 
 .buy-ticket {

@@ -58,9 +58,9 @@ function MenuBar() {
 					<img src={buttons.menu_toggle} alt="" />
 				</div>
 				<div className="sidebar__social">
-					<a>
+					{/* <a>
 						<img src={buttons.inst} alt="" />
-					</a>
+					</a> */}
 					<a>
 						<img src={buttons.vk} alt="" />
 					</a>

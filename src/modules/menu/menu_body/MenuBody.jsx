@@ -12,11 +12,11 @@ function MenuBody(params) {
 	});
 
 	return (
-		<animated.div className="menulist" style={{ left: x.to((x) => `-${x * 10}vw`), position: 'absolute' }}>
+		<animated.div className="menulist" style={{ left: x.to((x) => `-${x * 10}vw`), position: 'absolute'}}>
 			<ul>
 				<li>
 					<span>01 /</span>
-					<a href="/">Джаз</a>
+					<a href="/jazz">Джаз</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>
@@ -28,30 +28,37 @@ function MenuBody(params) {
 						<img src={menu_arrow} alt="" />
 					</span>
 				</li>
-				<li>
+				{/* <li>
 					<span>03 /</span>
 					<a href="/jazz">Лекторий</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>
-				</li>
-				<li>
+				</li> */}
+				{/* <li>
 					<span>04 /</span>
 					<a href="">Гастрономия</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>
-				</li>
+				</li> */}
 				<li>
-					<span>05 /</span>
-					<a href="">Архив событий</a>
+					<span>03 /</span>
+					<a href="">События</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>
 				</li>
-				<li>
+				{/* <li>
 					<span>06 /</span>
 					<a href="">Партнеры</a>
+					<span>
+						<img src={menu_arrow} alt="" />
+					</span>
+				</li> */}
+				<li>
+					<span>04 /</span>
+					<a href="/final">Контакты</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>

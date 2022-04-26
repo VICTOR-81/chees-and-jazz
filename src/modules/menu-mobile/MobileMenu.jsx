@@ -45,11 +45,11 @@ function MobileMenu() {
 
     <div className="mobilemenu">
       <div className="mobile__container">
-        <MobileMenuHeader />
-        {/* <MobileMenulist displayed={menuState} transit_to={0} /> */}
-        {/* <MobileMenuCommunication displayed={menuState} transit_to={0} /> */}
-				 <MobileMenulist />
-         <MobileMenuCommunication />
+         <MobileMenuHeader />
+				 <div className="mobilemenu_body">
+						<MobileMenulist />
+						<MobileMenuCommunication />
+				 </div>
       </div>
     </div>
 

@@ -18,7 +18,7 @@ import { PageContext } from '../../../PageContext';
 
 function StartPage(params) {
 	const [page, setPage] = useContext(PageContext);
-
+	const date = "30 июля 2022";
 	return (
 		<>
 			<div className={params.child === true ? 'container page_split child' : 'container page_split'}>
@@ -27,27 +27,28 @@ function StartPage(params) {
 				</div>
 				<div className="right-part">
 					<div className="main-page__picture">
+						<BtnTicket />
 						<span>
 							<MPSlider />
 						</span>
 					</div>
 
 					<div className="info-container">
-						<div>30-31 июля 2022 </div>
+						<div>{date}</div>
 						<img src={asterisk} alt="" />
 						<div>Сад «Эрмитаж»</div>
 						<img src={asterisk} alt="" />
-						<div>30-31 июля 2022</div>
+						<div>{date}</div>
 						<img src={asterisk} alt="" />
 						<div>Сад «Эрмитаж»</div>
 						<img src={asterisk} alt="" />
-						<div>30-31 июля 2022</div>
+						<div>{date}</div>
 						<img src={asterisk} alt="" />
 					</div>
 					<div className="bottom-container">
 						<div className="bottom-content">
 							<div className="date-content">30 июля 2022</div>
-							<div className="date-content">31 июля 2022</div>
+							{/* <div className="date-content">31 июля 2022</div> */}
 
 							<div className="author-info">
 								<div className="author-name">Леонид Агутин</div>
@@ -55,24 +56,24 @@ function StartPage(params) {
 									<img src={agutin} alt="" />
 								</div>
 							</div>
-							<div className="author-info">
+							{/* <div className="author-info">
 								<div className="author-name">Portico Quartet</div>
 								<div className="author-picture">
 									<img src={portio} alt="" />
 								</div>
-							</div>
-							<div className="author-info">
+							</div> */}
+							{/* <div className="author-info">
 								<div className="author-name">Jordan Rakei</div>
 								<div className="author-picture">
 									<img src={jordan} alt="" />
 								</div>
-							</div>
-							<div className="author-info">
+							</div> */}
+							{/* <div className="author-info">
 								<div className="author-name">Иван Дорн</div>
 								<div className="author-picture">
 									<img src={dorn} alt="" />
 								</div>
-							</div>
+							</div> */}
 						</div>
 						<button
 							className="button-next"
@@ -99,7 +100,7 @@ function StartPage(params) {
 				</div>
 			</div>
 
-			<BtnTicket />
+			{/* <BtnTicket /> */}
 		</>
 	);
 }

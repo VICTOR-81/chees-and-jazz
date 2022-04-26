@@ -1,4 +1,5 @@
 import React from 'react';
+import Map from '../../map/Map';
 
 import './page_styles/final.scss';
 
@@ -68,10 +69,11 @@ function FinalPage(params) {
     </iframe> </div>
                     </div> */}
 
-                    {/* <!-- <div class="final_map">
-                        <div style=" -webkit-filter: grayscale(100%);
-                            filter: grayscale(100%) brightness(50%)  invert(100%) ; "> <iframe src="https://www.google.com/maps/d/embed?mid=1-DnAORzObdiUXc9mmud86l969c4TAABO&ehbc=2E312F" width="980" height="380" frameborder="0" style="border:0"></iframe> </div>
-                    </div> --> */}
+                    <div class="final_map">
+                      {/* <Map /> */}
+                        {/* <div style=" -webkit-filter: grayscale(100%);
+                            filter: grayscale(100%) brightness(50%)  invert(100%) ; "> <iframe src="https://www.google.com/maps/d/embed?mid=1-DnAORzObdiUXc9mmud86l969c4TAABO&ehbc=2E312F" width="980" height="380" frameborder="0" style="border:0"></iframe> </div> */}
+                    </div>
                     <div class="final__info">
                         <div class="final-date">
                             <p> 30—31 июля 2022</p>

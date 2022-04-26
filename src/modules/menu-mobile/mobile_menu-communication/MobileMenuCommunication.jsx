@@ -13,8 +13,8 @@ function MobileMenuCommunication() {
       <div className="mobilemenu__communication-social">
         мы в социальных сетях:
         <div className="mobilemenu__communication-social__items">
-          <a href="http://">instagram</a>
-          <a href="http://">facebook</a>
+          {/* <a href="http://">instagram</a> */}
+          {/* <a href="http://">facebook</a> */}
           <a href="http://">вконтакте</a>
         </div>
       </div>

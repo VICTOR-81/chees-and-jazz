@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 
+
+import MobileMenuHeader from '../../menu-mobile/mobile_menu-header/MobileMenuHeader';
 import './page_styles-mobile/start_page-mobile.scss';
 // import './page_styles-mobile/logo-mobile.scss';
 import './page_styles-mobile/picture-mobile.scss';
@@ -31,7 +33,8 @@ function StartPageMobile(params) {
 					
 
       <div class="mobile-container">
-            <div class="m-menu">
+        {/* <MobileMenuHeader /> */}
+            {/* <div class="m-menu">
                 <div class="m-menu__btn">
                     <div class="m__btn_top"></div>
                     <div class="m__btn_middle"></div>
@@ -52,12 +55,12 @@ function StartPageMobile(params) {
                     <p>КУПИТЬ</p>
                     <p>БИЛЕТ</p>
                 </div>
-            </div>
+            </div> */}
             <div class="m-content m-content-sp">
                 <div class="m-header">
                   <img src={heading} alt="" />
                 </div>
-                <div className="main-page__picture">
+                <div className="main-page-mobile__picture">
                   <span>
                     <MPSlider />
                   </span>

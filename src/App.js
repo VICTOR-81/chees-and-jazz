@@ -18,9 +18,13 @@ import FinalPageMobile from './modules/pages-mobile/final-page-mobile/FinalPageM
 
 import isDesktop from './scripts/isDesktop';
 
+
 import logo from './logo.svg';
 import './App.css';
 import ArtistPageMobile from './modules/artist_page-mobile/ArtistPageMobile';
+import MobileMenuHeader from './modules/menu-mobile/mobile_menu-header/MobileMenuHeader';
+
+
 
 function App() {
 	const pages = [
@@ -44,6 +48,16 @@ function App() {
 			page: <FinalPage child={true} />,
 			theme: 'dark',
 		},
+		// {
+		// 	path: '/startmobile',
+		// 	page: <StartPageMobile child={true} />,
+		// 	theme: 'dark',
+		// },
+		// {
+		// 	path: '/jazzmobile',
+		// 	page: <JazzPageMobile child={true} />,
+		// 	theme: 'dark',
+		// },
 	];
 
 	const pageNum = getPageNum();
@@ -242,14 +256,37 @@ function App() {
 			// 	<ArtistPageMobile />
 			// </PageContext.Provider>
 			<>
+				<MobileMenuHeader />
 				<StartPageMobile />
-				<MobileMenu />
+				{/* <MobileMenu /> */}
 				<JazzPageMobile />
 				<ArtistPageMobile />
 				<ChessPageMobile />
 				<EventsPageMobile />
 				<FinalPageMobile />
 			</>
+			// <PageContext.Provider value={[pageContext, setPageContext]}>
+			// 	<MobileMenuHeader />
+			//  	<StartPageMobile />
+			//  	{/* <MobileMenu /> */}
+			//  	<JazzPageMobile />
+			//  	<ArtistPageMobile />
+			//  	<ChessPageMobile />
+			//  	<EventsPageMobile />
+			//  	<FinalPageMobile />
+			// </PageContext.Provider>
+			// <>
+			// 	<MobileMenuHeader />
+			// 	<Suspense fallback={<div>Loading...</div>}>
+			// 			<Routes>
+			// 				<Route exact path="/startmobile" element={<StartPageMobile />} />
+			// 				{/* <Route path="/jazz" element={<JazzPage />} /> */}
+			// 				{/* <Route path="/chess" element={<ChessPage />} /> */}
+			// 				{/* <Route path="/final" element={<FinalPage />} /> */}
+			// 				<Route path="/jazzmobile" element={<JazzPageMobile />} />
+			// 			</Routes>
+			// 		</Suspense>
+			// </>
 		);
 	}
 }

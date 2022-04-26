@@ -7,6 +7,7 @@ import './page_styles/chess.scss';
 
 import arrow from '../../../assets/icons/arrow-next.svg';
 import sponsor from '../../../assets/images/heap/chess_village_sponsor.png';
+import chess_img1 from '../../../assets/images/heap/chess_img1.JPG'
 
 import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
 import ChessSlider from './chess_slider/ChessSlider';
@@ -24,10 +25,11 @@ const events = [
 		day: '31 ИЮЛЯ',
 		time: '14:00 - 20:00',
 		name: 'CHESS VILLAGE',
-		person: {
-			avatar: sponsor,
-			name: 'Сергей Карякин',
-		},
+		person: false,
+		// person: {
+		// 	avatar: sponsor,
+		// 	name: 'Сергей Карякин',
+		// },
 		description: 'Здесь гости фестиваля получат возможность сыграть шахматную партию бок о бок с гроссмейстерами мирового уровня.',
 	},
 	{
@@ -59,10 +61,10 @@ function ChessPage(params) {
 
 					<div className="chess-right">
 						<BtnTicket />
-						<div className="jazz__sponsor">
+						{/* <div className="jazz__sponsor">
 							ПРИ ПОДДЕРЖКЕ:
 							<img src={sponsor} alt="" />
-						</div>
+						</div> */}
 					</div>
 				</div>
 
@@ -70,6 +72,7 @@ function ChessPage(params) {
 					<div className="chess-table">
 						<div className="chess-picture">
 							<ChessSlider />
+						{/* <img className='chess_img' src={chess_img1} alt="" /> */}
 						</div>
 						<div className="chess-events">
 							<ChessEvents events={events} />
