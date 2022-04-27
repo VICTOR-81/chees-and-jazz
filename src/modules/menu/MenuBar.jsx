@@ -22,8 +22,8 @@ function MenuBar() {
 	const [menuState, setMenuState] = useState(false);
 	console.log(params);
 	const theme = {
-		background: page.pages[page.current].theme === 'dark' && !menuState ? '#000' : '#fff',
-		borderRight: page.pages[page.current].theme === 'dark' && !menuState ? '1px solid #F4F3F3' : '1px solid #F4F3F3',
+		background: page.pages[page.current].theme === 'dark' && !menuState ? '#000' : '#F4F3F3',
+		borderRight: page.pages[page.current].theme === 'dark' && !menuState ? '1px solid #F4F3F3' : '1px solid #BEBEBE',
 	};
 	const buttons = {
 		vk: page.pages[page.current].theme === 'dark' && !menuState ? light_vk : vk,

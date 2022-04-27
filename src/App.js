@@ -23,6 +23,7 @@ import logo from './logo.svg';
 import './App.css';
 import ArtistPageMobile from './modules/artist_page-mobile/ArtistPageMobile';
 import MobileMenuHeader from './modules/menu-mobile/mobile_menu-header/MobileMenuHeader';
+import EventsPage from './modules/pages/events_page/EventsPage';
 
 
 
@@ -41,6 +42,11 @@ function App() {
 		{
 			path: '/chess',
 			page: <ChessPage child={true} />,
+			theme: 'light',
+		},
+		{
+			path: '/events',
+			page: <EventsPage child={true} />,
 			theme: 'light',
 		},
 		{
@@ -202,6 +208,7 @@ function App() {
 							<Route exact path="/" element={<StartPage />} />
 							<Route path="/jazz" element={<JazzPage />} />
 							<Route path="/chess" element={<ChessPage />} />
+							<Route path="/events" element={<EventsPage />} />
 							<Route path="/final" element={<FinalPage />} />
 						</Routes>
 					</Suspense>

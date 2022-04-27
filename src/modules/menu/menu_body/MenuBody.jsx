@@ -44,7 +44,7 @@ function MenuBody(params) {
 				</li> */}
 				<li>
 					<span>03 /</span>
-					<a href="">События</a>
+					<a href="/events">События</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>
