@@ -71,7 +71,7 @@ function EventsPage(params) {
                   </div>
               </div>
             </div>
-//////////////////////////////////////////////////////////////////////////////////////////////////            
+      
             <div className="events__content-items__item">
               <div>Chess & Jazz Brunch 2020</div>
               <div>
@@ -108,7 +108,7 @@ function EventsPage(params) {
                   </div>
               </div>
             </div>
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////            
+            
             <div className="events__content-items__item">
               <div>Партия IV</div>
               <div>
@@ -145,7 +145,7 @@ function EventsPage(params) {
                   </div>
               </div>
             </div>
-/////////////////////////////////////////////////////////////////////////////////////////////////            
+            
             <div className="events__content-items__item">
               <div>Партия III</div>
               <div>
