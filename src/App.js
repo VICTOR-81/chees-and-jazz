@@ -119,12 +119,12 @@ function App() {
 	}
 
 	function forward() {
-		if (getPageNum() < pages.length - 1 && pageContext.context === 'scroll') {
+		if (getPageNum() < pages.length - 1) {
 			setAnim('forward');
 		}
 	}
 	function backwards() {
-		if (getPageNum() > 0 && pageContext.context === 'scroll') {
+		if (getPageNum() > 0) {
 			setAnim('backwards');
 		}
 	}

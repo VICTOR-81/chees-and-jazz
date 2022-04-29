@@ -30,14 +30,7 @@ function ChessEvents(params) {
 				) : (
 					''
 				)}
-				<div className="event-text">
-					<p>Здесь гости фестиваля</p>
-					<p>получат возможность</p>
-					<p>сыграть шахматную</p>
-					<p> партию бок о бок</p>
-					<p> с гроссмейстерами</p>
-					<p>мирового уровня.</p>
-				</div>
+				<div className="event-text">{el.description}</div>
 			</div>
 		);
 	});

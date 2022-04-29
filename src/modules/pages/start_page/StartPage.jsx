@@ -18,7 +18,7 @@ import { PageContext } from '../../../PageContext';
 
 function StartPage(params) {
 	const [page, setPage] = useContext(PageContext);
-	const date = "30 июля 2022";
+	const date = '30 июля 2022';
 	return (
 		<>
 			<div className={params.child === true ? 'container page_split child' : 'container page_split'}>
@@ -50,7 +50,13 @@ function StartPage(params) {
 							<div className="date-content">30 июля 2022</div>
 							{/* <div className="date-content">31 июля 2022</div> */}
 
-							<div className="author-info">
+							<div
+								className="author-info"
+								style={{ cursor: 'pointer' }}
+								onClick={() => {
+									page.swipeForward();
+								}}
+							>
 								<div className="author-name">Леонид Агутин</div>
 								<div className="author-picture">
 									<img src={agutin} alt="" />
@@ -81,19 +87,23 @@ function StartPage(params) {
 								page.swipeForward();
 							}}
 						>
-							<img src={arrow} alt="" />
+							<div className="next-container">
+								<div className="button-arrow">
+									<img src={arrow} alt="" />
+								</div>
 
-							<div className="button-next-hover">
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
-								<img src={arrow} alt="" />
+								<div className="button-next-hover">
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+									<img src={arrow} alt="" />
+								</div>
 							</div>
 						</button>
 					</div>

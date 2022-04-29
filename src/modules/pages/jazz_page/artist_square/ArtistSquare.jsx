@@ -3,10 +3,19 @@ import React from 'react';
 import img from '../../../../assets/icons/Rectangle7.svg';
 
 function ArtistSquare(params) {
-	console.log(params);
 	return params.artists.map((el, i) => {
 		return (
-			<div className="jazz__card" key={i} data-key={i}>
+			<div
+				className="jazz__card"
+				key={i}
+				data-key={i}
+				data-index={i}
+				style={{ cursor: 'pointer' }}
+				onClick={(e) => {
+					const id = e.currentTarget.dataset.index;
+					params.context(id);
+				}}
+			>
 				<img src={el.pic} alt="" />
 				<div className="jazz__card-popup">
 					<div className="jazz__card-top">
@@ -14,14 +23,7 @@ function ArtistSquare(params) {
 							<div>{el.date}</div>
 							<div>{el.time}</div>
 						</div>
-						<button
-							data-index={i}
-							className="jazz__card-arrow"
-							onClick={(e) => {
-								const id = e.currentTarget.dataset.index;
-								params.context(id);
-							}}
-						>
+						<button className="jazz__card-arrow">
 							<img src={img} alt="" />
 						</button>
 					</div>

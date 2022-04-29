@@ -218,7 +218,12 @@ function JazzPage(params) {
 						</div>
 					</div>
 				</div>
-				<div className="chess-button2">
+				<div
+					className="chess-button2"
+					onClick={() => {
+						pageContext.swipeForward();
+					}}
+				>
 					<div className="chess-button__content2 ">ШАХМАТЫ</div>
 					<img src={arrow} alt="" />
 					<div className="chess-button__content2 ">ШАХМАТЫ</div>

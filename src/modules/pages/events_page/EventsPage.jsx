@@ -153,7 +153,7 @@ function EventsPage(params) {
 	const [pageContext, setPageContext] = useContext(PageContext);
 	const [eventYear, setEventYear] = useState(events_2021);
 
-	console.log(eventYear);
+	console.log(pageContext);
 
 	return (
 		<div className={params.child === true ? 'container events-cont child' : 'container events-cont'}>
@@ -213,7 +213,12 @@ function EventsPage(params) {
 						})}
 					</div>
 				</div>
-				<div className="chess-button2">
+				<div
+					className="chess-button2"
+					onClick={() => {
+						pageContext.swipeForward();
+					}}
+				>
 					<div className="chess-button__content2 ">{contacts}</div>
 					<img src={arrow} alt="" />
 					<div className="chess-button__content2 ">{contacts}</div>

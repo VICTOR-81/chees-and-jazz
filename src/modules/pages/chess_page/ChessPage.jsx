@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import './page_styles/chess-events.scss';
 import './page_styles/chess-lectures-button.scss';
@@ -19,39 +19,44 @@ import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
 import ChessSlider from './chess_slider/ChessSlider';
 import ChessEvents from './chess_events/ChessEvents';
 
+import { PageContext } from '../../../PageContext';
+
 const events = [
 	{
 		day: '30 ИЮЛЯ',
 		time: '14:00 - 20:00',
 		name: 'CHESS SCHOOL',
 		person: false,
-		description: 'Лучшие тренеры Российской шахматной федерации поделятся знаниями и приемами с теми, кто взял фигуру в руки впервые.',
+		description: 'Экспресс-обучение игре в шахматы в школе "How to chess well" прямо на фестивале.',
 	},
 	{
 		day: '30 ИЮЛЯ',
 		time: '14:00 - 20:00',
 		name: 'CHESS VILLAGE',
 		person: false,
-		description: 'Здесь гости фестиваля получат возможность сыграть шахматную партию бок о бок с гроссмейстерами мирового уровня.',
+		description:
+			'Любая свободная шахматная доска в нашем городке это повод сделать первый ход. Играйте с друзьями, знакомьтесь и общайтесь за шахматной доской.',
 	},
 	{
 		day: '30 ИЮЛЯ',
 		time: '16:00 - 20:00',
-		name: 'CHESS UP',
+		name: 'CHESS CUP',
 		person: false,
-		description: 'Пространство, предназначенное для турнира, состязаться в котором будут именитые шахматисты.',
+		description: 'Традиционный фестивальный шахматный турнир. Кто станет сильнейшим игроком на Chess & Jazz? Запись на турнир происходит на фестивале.',
 	},
 	{
 		day: '30 ИЮЛЯ',
 		time: '19:00 - 20:00',
 		name: 'CHESS SEANCE',
 		person: false,
-		description: 'Лучшие тренеры Российской шахматной федерации поделятся знаниями и приемами с теми, кто взял фигуру в руки впервые.',
+		description:
+			'Играем сеанс одновременной игры с настоящим шахматным гуру. Бросить вызов гроссмейстеру может каждый. Запись на игру происходит на фестивале.',
 	},
 ];
 
 function ChessPage(params) {
 	const [image, setImage] = useState(0);
+	const [pageContext, setPageContext] = useContext(PageContext);
 
 	function changeImage(index) {
 		setImage(index);
@@ -86,7 +91,12 @@ function ChessPage(params) {
 							<ChessEvents events={events} changeImage={changeImage} />
 						</div>
 					</div>
-					<div className="lectures-button2">
+					<div
+						className="lectures-button2"
+						onClick={() => {
+							pageContext.swipeForward();
+						}}
+					>
 						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
 						<img src={arrow} alt="" />
 						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>

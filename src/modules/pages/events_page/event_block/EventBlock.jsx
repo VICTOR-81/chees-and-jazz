@@ -33,7 +33,15 @@ function EventBLock(params) {
 							<span>{params.event_data.location}</span>
 						</div>
 						<div className="events__content-items__link">
-							<a href={params.event_data.link}>Подробнее</a>
+							<a
+								href={params.event_data.link}
+								onClick={(e) => {
+									e.preventDefault();
+									window.open(e.target.href);
+								}}
+							>
+								Подробнее
+							</a>
 						</div>
 					</div>
 					<div className="events__content-items__text">{params.event_data.description}</div>
