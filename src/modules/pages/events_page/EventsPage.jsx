@@ -24,17 +24,6 @@ import EventsSlider8 from './events_sliders/EventsSlider8';
 import EventsSlider9 from './events_sliders/EventsSlider9';
 import EventsSlider10 from './events_sliders/EventsSlider10';
 
-// const EventsSlider1 = React.lazy(() => import('./events_sliders/EventsSlider1'));
-// const EventsSlider2 = React.lazy(() => import('./events_sliders/EventsSlider2'));
-// const EventsSlider3 = React.lazy(() => import('./events_sliders/EventsSlider3'));
-// const EventsSlider4 = React.lazy(() => import('./events_sliders/EventsSlider4'));
-// const EventsSlider5 = React.lazy(() => import('./events_sliders/EventsSlider5'));
-// const EventsSlider6 = React.lazy(() => import('./events_sliders/EventsSlider6'));
-// const EventsSlider7 = React.lazy(() => import('./events_sliders/EventsSlider7'));
-// const EventsSlider8 = React.lazy(() => import('./events_sliders/EventsSlider8'));
-// const EventsSlider9 = React.lazy(() => import('./events_sliders/EventsSlider9'));
-// const EventsSlider10 = React.lazy(() => import('./events_sliders/EventsSlider10'));
-
 const events_2021 = [
 	{
 		slider: <EventsSlider1 />,
