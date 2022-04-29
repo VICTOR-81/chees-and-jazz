@@ -3,14 +3,22 @@ import './right_sidebar.scss';
 import arrowleft from '../../../assets/icons/big-arrow-left.svg';
 import arroright from '../../../assets/icons/big-arrow-right.svg';
 
-function RightSidebar() {
+function RightSidebar(params) {
 	return (
 		<div className="rightsidebar">
 			<div className="btnnavigation">
-				<button>
+				<button
+					onClick={() => {
+						params.goBack();
+					}}
+				>
 					<img src={arrowleft} alt="" />
 				</button>
-				<button>
+				<button
+					onClick={() => {
+						params.goForward();
+					}}
+				>
 					<img src={arroright} alt="" />
 				</button>
 			</div>

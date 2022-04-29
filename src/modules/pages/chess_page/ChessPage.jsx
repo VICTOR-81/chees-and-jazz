@@ -97,35 +97,35 @@ function ChessPage(params) {
 							pageContext.swipeForward();
 						}}
 					>
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">ЛЕКТОРИЙ</div>
+						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
 						<img src={arrow} alt="" />
 					</div>
 				</div>

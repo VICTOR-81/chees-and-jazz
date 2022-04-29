@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useSpring } from 'react-spring';
 
 import './page_styles/jazz_cards.scss';
 import './page_styles/jazz_marquee.scss';
@@ -10,11 +11,13 @@ import artist_avatar from '../../../assets/images/artists/artist-avatar.jpg';
 import artist2 from '../../../assets/images/heap/Portico_Quartet.png';
 import artist1 from '../../../assets/images/heap/image_82.png';
 import artist_detail1 from '../../../assets/images/artists/agutin.jpg';
-import artist_detail2 from '../../../assets/images/artists/portico-quartet.jpg';
+// import artist_avatar from '../../../assets/images/artists/portico-quartet.jpg';
 
 import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
 import ArtistSquare from './artist_square/ArtistSquare';
 import ArtistPage from './../../artist_page/ArtistPage';
+import ChessPage from '../chess_page/ChessPage';
+
 import { PageContext } from '../../../PageContext';
 
 const artists = [
@@ -38,9 +41,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -51,9 +53,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -64,9 +65,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -77,9 +77,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -90,9 +89,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -103,9 +101,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -116,9 +113,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -129,9 +125,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -142,9 +137,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -155,9 +149,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '',
 	},
 	{
 		// pic: artist2,
@@ -168,9 +161,8 @@ const artists = [
 		detail_date: '31 ИЮЛЯ 2022',
 		time_end: '20:15',
 		time: '',
-		detailed: artist_detail2,
-		description:
-			'Portico Quartet —  долгожданный джазовый квартет из Лондона. В 2007 вышел дебютный альбом «Knee-deep in the North Sea». Он попал в номинанты на Mercury Music Prize в 2008 году, а журнал Time Out и вовсе назвал его лучшим джазовым альбомом года. В целом, сугубо джазовым квартет и не назовешь. Лондонцы мешают в один котел джаз, эмбиент и другие поджанры электроники. В 2021 году группа выпустила полноценный альбом “Monument”, а затем порадовала поклонников мини-альбомом “Next Stop”. Эту музыку стоит хоть раз услышать живьем!',
+		detailed: artist_avatar,
+		description: '222222222222',
 	},
 ];
 
@@ -178,18 +170,49 @@ function JazzPage(params) {
 	const [isArtist, setIsArtist] = useState(null);
 	const [pageContext, setPageContext] = useContext(PageContext);
 
+	// const artistForward = useSpring({
+	// 	from: { transform: 'translateX(0px)' },
+	// 	to: { transform: 'translateX(-100vw)' },
+	// });
+	// const artistBackwards = useSpring({
+	// 	from: { transform: 'translateX(0px)' },
+	// 	to: { transform: 'translateX(100vw)' },
+	// });
+
+	function goForwardArtist() {
+		if (+isArtist < artists.length - 1) {
+			setIsArtist(+isArtist + 1);
+		} else {
+			setIsArtist(null);
+			pageContext.swipeForward();
+		}
+	}
+	function goBackwardsArtist() {
+		if (+isArtist > 0) {
+			setIsArtist(+isArtist - 1);
+		} else {
+			setIsArtist(null);
+		}
+	}
+
 	function changeContext(number) {
 		if (isArtist === null) {
 			setIsArtist(number);
-		} else if (isArtist > 0 && isArtist < artists.length - 1) {
+		} else if (isArtist > -1 && isArtist < artists.length - 1) {
 			setIsArtist(number);
 		} else {
 			setIsArtist(null);
 		}
 	}
 
+	// if (isArtist == 0) {
+	// 	styles.left = 'calc(100vw-80px)';
+	// } else {
+	// 	styles.left = 'calc(' + '-' + isArtist * 100 + 'vw - 80px)';
+	// }
+
 	useEffect(() => {
-		isArtist !== null ? pageContext.setContext('default') : pageContext.setContext('scroll');
+		isArtist !== null ? pageContext.setContext('artist') : pageContext.setContext('scroll');
 	});
 
 	if (isArtist == null) {
@@ -246,13 +269,30 @@ function JazzPage(params) {
 			</div>
 		);
 	} else {
+		const styles = {
+			display: 'flex',
+			width: '900vw',
+			position: 'relative',
+			transition: 'all ease 0.3s',
+			left: isArtist == 0 ? 'calc(100vw - 80px)' : 'calc(' + '-' + (isArtist - 1) * 100 + 'vw - 80px)',
+		};
+		console.log(styles);
 		return (
 			<div
 				className="artists_big_picture"
-				style={{ display: 'flex', width: '1200vw', position: 'relative', left: 'calc(76vw - ' + isArtist * 100 + 'vw)' }}
+				style={{ display: styles.display, width: styles.width, position: styles.position, left: styles.left, transition: styles.transition }}
+				onWheel={(e) => {
+					if (pageContext.context !== 'scroll') {
+						if (e.deltaY == 100) {
+							goForwardArtist();
+						} else if (e.deltaY == -100) {
+							goBackwardsArtist();
+						}
+					}
+				}}
 			>
 				{artists.map((el, i) => {
-					return <ArtistPage artist={el} key={i} />;
+					return <ArtistPage artist={el} key={i} data-index={i} goBack={goBackwardsArtist} goForward={goForwardArtist} />;
 				})}
 			</div>
 		);

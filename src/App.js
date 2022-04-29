@@ -47,7 +47,7 @@ function App() {
 			theme: 'light',
 		},
 		{
-			path: '/final',
+			path: '/contacts',
 			page: <FinalPage child={true} />,
 			theme: 'dark',
 		},
@@ -124,7 +124,9 @@ function App() {
 		}
 	}
 	function backwards() {
-		if (getPageNum() > 0) {
+		if (scrollContext === 'artist') {
+			window.location.reload();
+		} else if (getPageNum() > 0) {
 			setAnim('backwards');
 		}
 	}
@@ -219,7 +221,7 @@ function App() {
 								<Route path="/jazz" element={<JazzPage />} />
 								<Route path="/chess" element={<ChessPage />} />
 								<Route path="/events" element={<EventsPage />} />
-								<Route path="/final" element={<FinalPage />} />
+								<Route path="/contacts" element={<FinalPage />} />
 							</Routes>
 						</Suspense>
 						{next_page()}

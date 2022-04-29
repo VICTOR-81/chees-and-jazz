@@ -15,7 +15,7 @@ function ArtistPage(params) {
 			<div className="container">
 				<div className="artistpage__wrapper">
 					<ArtistProfile artist={params.artist} />
-					<RightSidebar artist={params.artist} />
+					<RightSidebar artist={params.artist} goBack={params.goBack} goForward={params.goForward} />
 				</div>
 			</div>
 		</div>

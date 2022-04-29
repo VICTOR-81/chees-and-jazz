@@ -13,6 +13,7 @@ function ArtistSquare(params) {
 				style={{ cursor: 'pointer' }}
 				onClick={(e) => {
 					const id = e.currentTarget.dataset.index;
+					console.log('id ' + id);
 					params.context(id);
 				}}
 			>
