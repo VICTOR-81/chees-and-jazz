@@ -8,6 +8,7 @@ function ChessEvents(params) {
 				key={i}
 				onMouseEnter={(e) => {
 					e.currentTarget.classList.add('event-active');
+					params.changeImage(i);
 				}}
 				onMouseLeave={(e) => {
 					e.currentTarget.classList.remove('event-active');

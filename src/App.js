@@ -18,14 +18,11 @@ import FinalPageMobile from './modules/pages-mobile/final-page-mobile/FinalPageM
 
 import isDesktop from './scripts/isDesktop';
 
-
 import logo from './logo.svg';
 import './App.css';
 import ArtistPageMobile from './modules/artist_page-mobile/ArtistPageMobile';
 import MobileMenuHeader from './modules/menu-mobile/mobile_menu-header/MobileMenuHeader';
 import EventsPage from './modules/pages/events_page/EventsPage';
-
-
 
 function App() {
 	const pages = [
@@ -67,7 +64,6 @@ function App() {
 	];
 
 	const pageNum = getPageNum();
-
 	const navigate = useNavigate();
 	const container = useRef();
 
@@ -75,12 +71,14 @@ function App() {
 	const [helper, setHelper] = useState(true);
 	const [anim, setAnim] = useState('');
 	const [version, setVersion] = useState(isDesktop() ? 'desktop' : 'mobile');
+	const [scrollContext, setScrollContext] = useState(isDesktop() ? 'scroll' : 'default');
 	const [pageContext, setPageContext] = useState({
 		pages,
 		current: getPageNum(),
 		swipeBack: backwards,
 		swipeForward: forward,
-		context: 'page',
+		context: scrollContext,
+		setContext: setupScrollContext,
 	});
 
 	const slideForwardAnimation = useSpring({
@@ -98,13 +96,19 @@ function App() {
 			current: getPageNum(),
 			swipeBack: backwards,
 			swipeForward: forward,
-			context: 'page',
+			context: scrollContext,
+			setContext: setupScrollContext,
 		});
+		console.log('appUseEffect', pageContext.context);
 		return () => {
 			window.removeEventListener('resize', rz);
-			window.removeEventListener('wheel', window.handlePageScroll);
+			// window.removeEventListener('wheel', window.handlePageScroll);
 		};
-	}, [helper, version]);
+	}, [helper, scrollContext]);
+
+	function setupScrollContext(context) {
+		setScrollContext(context);
+	}
 
 	function getPageNum() {
 		for (let i = 0; i < pages.length; i++) {
@@ -115,12 +119,12 @@ function App() {
 	}
 
 	function forward() {
-		if (getPageNum() < pages.length - 1 && pageContext.context === 'page') {
+		if (getPageNum() < pages.length - 1 && pageContext.context === 'scroll') {
 			setAnim('forward');
 		}
 	}
 	function backwards() {
-		if (getPageNum() > 0 && pageContext.context === 'page') {
+		if (getPageNum() > 0 && pageContext.context === 'scroll') {
 			setAnim('backwards');
 		}
 	}
@@ -145,21 +149,23 @@ function App() {
 		} else return <div style={{ height: '100vh', width: '100vw' }}></div>;
 	};
 
-	if (pageContext.context === 'page') {
-		window.addEventListener('wheel', window.handlePageScroll);
-	} else {
-		window.removeEventListener('wheel', window.handlePageScroll);
-	}
-	window.handlePageScroll = function handlePageScroll(scroll) {
-		if (pageContext.context === 'page') {
+	// if (pageContext.context === 'scroll') {
+	// 	window.addEventListener('wheel', window.handlePageScroll);
+	// } else {
+	// 	window.removeEventListener('wheel', window.handlePageScroll);
+	// }
+	function handlePageScroll(scroll) {
+		if (pageContext.context === 'scroll') {
 			if (scroll.deltaY == 100 && pageContext.current !== pages.length - 1) {
-				pageContext.swipeForward();
+				forward();
+				console.log('forward');
 			} else if (scroll.deltaY == -100 && pageContext.current !== 0) {
-				pageContext.swipeBack();
+				backwards();
+				console.log('backwards');
 			}
-		}
-	};
-
+			console.log('context is scroll!!');
+		} else console.log('context is not scroll');
+	}
 	function rz() {
 		if (isDesktop()) {
 			setVersion('desktop');
@@ -168,7 +174,6 @@ function App() {
 			setVersion('mobile');
 			document.body.style.overflow = 'scroll';
 		}
-		console.log(version);
 	}
 
 	window.addEventListener('resize', rz);
@@ -178,42 +183,48 @@ function App() {
 
 		return (
 			<PageContext.Provider value={[pageContext, setPageContext]}>
-				<MenuBar />
-				<animated.div
-					className={anim === '' ? 'application' : 'application animated-now'}
-					ref={container}
-					style={anim === '' ? {} : applyAnimation(anim)}
-					onTransitionEnd={(e) => {
-						if (e.propertyName === 'transform') {
-							if (anim === 'backwards') {
-								if (pageContext.current - 1 > -1) {
-									setHelper(!helper);
-									setAnim('');
-									navigate(pages[pageContext.current - 1].path);
-								}
-							} else if (anim === 'forward') {
-								if (pageContext.current + 1 < pages.length) {
-									setHelper(!helper);
-									setAnim('');
-									navigate(pages[pageContext.current + 1].path);
-								}
-							}
-						}
+				<div
+					onWheel={(e) => {
+						handlePageScroll(e);
 					}}
 				>
-					{prev_page()}
+					<MenuBar />
+					<animated.div
+						className={anim === '' ? 'application' : 'application animated-now'}
+						ref={container}
+						style={anim === '' ? {} : applyAnimation(anim)}
+						onTransitionEnd={(e) => {
+							if (e.propertyName === 'transform') {
+								if (anim === 'backwards') {
+									if (pageContext.current - 1 > -1) {
+										setHelper(!helper);
+										setAnim('');
+										navigate(pages[pageContext.current - 1].path);
+									}
+								} else if (anim === 'forward') {
+									if (pageContext.current + 1 < pages.length) {
+										setHelper(!helper);
+										setAnim('');
+										navigate(pages[pageContext.current + 1].path);
+									}
+								}
+							}
+						}}
+					>
+						{prev_page()}
 
-					<Suspense fallback={<div>Loading...</div>}>
-						<Routes>
-							<Route exact path="/" element={<StartPage />} />
-							<Route path="/jazz" element={<JazzPage />} />
-							<Route path="/chess" element={<ChessPage />} />
-							<Route path="/events" element={<EventsPage />} />
-							<Route path="/final" element={<FinalPage />} />
-						</Routes>
-					</Suspense>
-					{next_page()}
-				</animated.div>
+						<Suspense fallback={<div>Loading...</div>}>
+							<Routes>
+								<Route exact path="/" element={<StartPage />} />
+								<Route path="/jazz" element={<JazzPage />} />
+								<Route path="/chess" element={<ChessPage />} />
+								<Route path="/events" element={<EventsPage />} />
+								<Route path="/final" element={<FinalPage />} />
+							</Routes>
+						</Suspense>
+						{next_page()}
+					</animated.div>
+				</div>
 			</PageContext.Provider>
 		);
 	} else if (version === 'mobile') {

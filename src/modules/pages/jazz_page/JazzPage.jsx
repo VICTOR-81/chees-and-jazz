@@ -6,7 +6,7 @@ import './page_styles/jazz_chess-btn.scss';
 import './page_styles/jazz.scss';
 
 import arrow from '../../../assets/icons/arrow-next.svg';
-import artist_avatar from '../../../assets/images/artists/artist-avatar.jpg'
+import artist_avatar from '../../../assets/images/artists/artist-avatar.jpg';
 import artist2 from '../../../assets/images/heap/Portico_Quartet.png';
 import artist1 from '../../../assets/images/heap/image_82.png';
 import artist_detail1 from '../../../assets/images/artists/agutin.jpg';
@@ -19,7 +19,7 @@ import { PageContext } from '../../../PageContext';
 
 const artists = [
 	{
-		pic: artist1,
+		pic: artist_detail1,
 		name: 'Леонид Агутин',
 		date: '31.07',
 		detail_date: '31 ИЮЛЯ 2022',
@@ -188,9 +188,13 @@ function JazzPage(params) {
 		}
 	}
 
-	useEffect(() => {});
+	useEffect(() => {
+		isArtist !== null ? pageContext.setContext('default') : pageContext.setContext('scroll');
+	});
 
 	if (isArtist == null) {
+		// pageContext.setContext('scroll');
+
 		return (
 			<div className={params.child === true ? 'container jazz-cont child' : 'container jazz-cont'}>
 				<div className="jazz-content">
