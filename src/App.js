@@ -51,16 +51,6 @@ function App() {
 			page: <FinalPage child={true} />,
 			theme: 'dark',
 		},
-		// {
-		// 	path: '/startmobile',
-		// 	page: <StartPageMobile child={true} />,
-		// 	theme: 'dark',
-		// },
-		// {
-		// 	path: '/jazzmobile',
-		// 	page: <JazzPageMobile child={true} />,
-		// 	theme: 'dark',
-		// },
 	];
 
 	const pageNum = getPageNum();

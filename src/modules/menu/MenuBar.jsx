@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { PageContext } from '../../PageContext';
+import { useTranslation } from "react-i18next";
 
 import './sidebar.scss';
 import yt from '../../assets/icons/youtube.svg';
@@ -50,10 +51,18 @@ function MenuBar() {
 		/>
 	);
 
+	const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
+
 	return (
 		<div className="menu_container">
 			<div className="sidebar" style={theme}>
 				<div className="sidebar__title">{menu_top}</div>
+      	<button onClick={() => changeLanguage("ru")} style={{ color: '#fff' }}>RU</button>
+				<button onClick={() => changeLanguage("en")} style={{ color: '#fff' }}>EN</button>
 				<div className="sidebar__menu-icon" onClick={() => setMenuState(!menuState)}>
 					<img src={buttons.menu_toggle} alt="" />
 				</div>

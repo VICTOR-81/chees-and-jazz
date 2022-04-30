@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useTranslation } from "react-i18next";
 import { useSpring } from 'react-spring';
 
 import './page_styles/jazz_cards.scss';
@@ -23,7 +24,8 @@ import { PageContext } from '../../../PageContext';
 const artists = [
 	{
 		pic: artist_detail1,
-		name: 'Леонид Агутин',
+		// name: 'Леонид Агутин',
+		name: 't("author-name")',
 		date: '31.07',
 		detail_date: '31 ИЮЛЯ 2022',
 		time: '18:30',
@@ -169,6 +171,8 @@ const artists = [
 function JazzPage(params) {
 	const [isArtist, setIsArtist] = useState(null);
 	const [pageContext, setPageContext] = useContext(PageContext);
+	const { t, i18n } = useTranslation();
+	const changeLanguage = (language) => {i18n.changeLanguage(language);};
 
 	// const artistForward = useSpring({
 	// 	from: { transform: 'translateX(0px)' },
