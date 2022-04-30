@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useTranslation } from "react-i18next";
 
 import './page_styles/chess-events.scss';
 import './page_styles/chess-lectures-button.scss';
@@ -20,43 +21,44 @@ import ChessSlider from './chess_slider/ChessSlider';
 import ChessEvents from './chess_events/ChessEvents';
 
 import { PageContext } from '../../../PageContext';
+import { t } from 'i18next';
 
 const events = [
 	{
-		day: '30 ИЮЛЯ',
+		day: 'chess_day',
 		time: '14:00 - 20:00',
 		name: 'CHESS SCHOOL',
 		person: false,
-		description: 'Экспресс-обучение игре в шахматы в школе "How to chess well" прямо на фестивале.',
+		description: 'chess_description1',
 	},
 	{
-		day: '30 ИЮЛЯ',
+		day: 'chess_day',
 		time: '14:00 - 20:00',
 		name: 'CHESS VILLAGE',
 		person: false,
-		description:
-			'Любая свободная шахматная доска в нашем городке это повод сделать первый ход. Играйте с друзьями, знакомьтесь и общайтесь за шахматной доской.',
+		description: 'chess_description2',
 	},
 	{
-		day: '30 ИЮЛЯ',
+		day: 'chess_day',
 		time: '16:00 - 20:00',
 		name: 'CHESS CUP',
 		person: false,
-		description: 'Традиционный фестивальный шахматный турнир. Кто станет сильнейшим игроком на Chess & Jazz? Запись на турнир происходит на фестивале.',
+		description: 'chess_description3',
 	},
 	{
-		day: '30 ИЮЛЯ',
+		day: 'chess_day',
 		time: '19:00 - 20:00',
 		name: 'CHESS SEANCE',
 		person: false,
-		description:
-			'Играем сеанс одновременной игры с настоящим шахматным гуру. Бросить вызов гроссмейстеру может каждый. Запись на игру происходит на фестивале.',
+		description: 'chess_description4',
 	},
 ];
 
 function ChessPage(params) {
 	const [image, setImage] = useState(0);
 	const [pageContext, setPageContext] = useContext(PageContext);
+
+	const { t, i18n } = useTranslation();
 
 	function changeImage(index) {
 		setImage(index);
@@ -68,7 +70,7 @@ function ChessPage(params) {
 				<div className="chess-content__top">
 					<div className="jazz-marquee-w">
 						<div className="jazz-marquee chess-marquee">
-							<div className={params.child ? 'chess_title title_cnj' : 'chess_title title_cnj initialized'}>ШАХМАТЫ ШАХМАТЫ&nbsp;</div>
+							<div className={params.child ? 'chess_title title_cnj' : i18n.translator.language == 'ru' ? 'chess_title title_cnj initialized' : 'chess_title title_cnj initialized chess_title-en'}>{t("chess")} {t("chess")}&nbsp;</div>
 						</div>
 					</div>
 
@@ -97,35 +99,35 @@ function ChessPage(params) {
 							pageContext.swipeForward();
 						}}
 					>
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">СОБЫТИЯ</div>
+						<div className="lectures-button__content2 ">{t("events")}</div>
 						<img src={arrow} alt="" />
 					</div>
 				</div>

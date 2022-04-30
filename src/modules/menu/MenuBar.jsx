@@ -61,8 +61,8 @@ function MenuBar() {
 		<div className="menu_container">
 			<div className="sidebar" style={theme}>
 				<div className="sidebar__title">{menu_top}</div>
-      	<button onClick={() => changeLanguage("ru")} style={{ color: '#fff' }}>RU</button>
-				<button onClick={() => changeLanguage("en")} style={{ color: '#fff' }}>EN</button>
+      	<button onClick={() => changeLanguage("ru")} style={{ color: 'blue' }}>RU</button>
+				<button onClick={() => changeLanguage("en")} style={{ color: 'blue' }}>EN</button>
 				<div className="sidebar__menu-icon" onClick={() => setMenuState(!menuState)}>
 					<img src={buttons.menu_toggle} alt="" />
 				</div>

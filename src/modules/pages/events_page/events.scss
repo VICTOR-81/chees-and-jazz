@@ -25,6 +25,10 @@
 			position: absolute;
 			content: 'События События\a0';
 		}
+		&-en::after{
+			position: absolute;
+			content: 'Events Events\a0';
+		}
 		&-wrapper {
 			width: 100%;
 			display: flex;
@@ -32,6 +36,10 @@
 			flex: 1;
 		}
 	}
+	// .gastronomybox__title-en::after{
+	// 	position: absolute;
+	// 		content: 'Events Events\a0';
+	// }
 	&__grid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);

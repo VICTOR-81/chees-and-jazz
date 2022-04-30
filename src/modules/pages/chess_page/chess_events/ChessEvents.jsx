@@ -1,6 +1,10 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 function ChessEvents(params) {
+
+	const { t, i18n } = useTranslation();
+	
 	return params.events.map((el, i) => {
 		return (
 			<div
@@ -15,7 +19,7 @@ function ChessEvents(params) {
 				}}
 			>
 				<div className="event-date">
-					<p>{el.day}</p>
+					<p>{t(el.day)}</p>
 					<p>{el.type}</p>
 				</div>
 				<div className="event-name">{el.name}</div>
@@ -30,7 +34,7 @@ function ChessEvents(params) {
 				) : (
 					''
 				)}
-				<div className="event-text">{el.description}</div>
+				<div className="event-text">{t(el.description)}</div>
 			</div>
 		);
 	});
