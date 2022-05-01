@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 import arrow from '../../../../assets/icons/arrow-next.svg';
 import plus from '../../../../assets/icons/plus_icon.svg';
 import minus from '../../../../assets/icons/minus_icon.svg';
 
+import { t } from 'i18next';
+
 function EventBLock(params) {
+
+	const { t, i18n } = useTranslation();
 	const [isOpened, setIsOpened] = useState(params.open_default ? true : false);
 
 	console.log(params.event_data.slider);
@@ -12,7 +17,7 @@ function EventBLock(params) {
 	return (
 		<>
 			<div className="events__content-items__item active">
-				<div>{params.event_data.title}</div>
+				<div>{t(params.event_data.title)}</div>
 				<div
 					style={{ height: '40px', width: '40px', cursor: 'pointer' }}
 					onClick={() => {
@@ -29,8 +34,8 @@ function EventBLock(params) {
 				<div className="events__content-items__right">
 					<div className="events__content-items__top">
 						<div className="events__content-items__date">
-							<span>{params.event_data.date}</span>
-							<span>{params.event_data.location}</span>
+							<span>{t(params.event_data.date)}</span>
+							<span>{t(params.event_data.location)}</span>
 						</div>
 						<div className="events__content-items__link">
 							<a
@@ -40,11 +45,11 @@ function EventBLock(params) {
 									window.open(e.target.href);
 								}}
 							>
-								Подробнее
+								{t("events_more")}
 							</a>
 						</div>
 					</div>
-					<div className="events__content-items__text">{params.event_data.description}</div>
+					<div className="events__content-items__text">{t(params.event_data.description)}</div>
 				</div>
 			</div>
 		</>

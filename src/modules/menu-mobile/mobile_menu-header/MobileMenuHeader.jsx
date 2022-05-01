@@ -1,50 +1,54 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageContext } from '../../../PageContext';
 
-import MobileMenuBtnBuyTicket from "./mobile_menu-btnbyticket/MobileMenuBtnBuyTicket";
-import MobileMenulist from '../mobile_menu-list/MobileMenuList';
+import MobileMenuBtnBuyTicket from './mobile_menu-btnbyticket/MobileMenuBtnBuyTicket';
+import MobileMenuList from '../mobile_menu-list/MobileMenuList';
 import MobileMenuCommunication from '../mobile_menu-communication/MobileMenuCommunication';
-import './mobile_menu-header.scss'
+import './mobile_menu-header.scss';
 import MobileMenuBurger from './mobile_menu-burger/MobileMenuBurger';
 import MobileMenuBody from '../mobile_menu-body/MobileMenuBody';
 
+import asterisk from '../../../assets/icons/star.svg';
+
 function MobileMenuHeader() {
-  // const [page, setPage] = useContext(PageContext);
-  const [menuMobileState, setMenuMobileState] = useState(true);
-  
-  // const params = page.pages[page.current];
-  // const theme = {
-	// 	background: page.pages[page.current].theme === 'dark' && !menuMobileState ? '#000' : '#fff',
-	// 	borderRight: page.pages[page.current].theme === 'dark' && !menuMobileState ? '1px solid #F4F3F3' : '1px solid #F4F3F3',
-	// };
-  return(
-    <>
-    <div className="mobilemenu__header" >
-      
-      {/* <MobileMenuBurger /> */}
+	const [menuMobileState, setMenuMobileState] = useState(false);
 
-    <div className="mobilemenu__burger" onClick={() => setMenuMobileState(!menuMobileState)}>
-      <div className="mobilemenu__burger-item animation__burger"></div>
-      <div className="mobilemenu__burger-item animation__burger"></div>
-    </div>
+	useEffect(() => {
+		menuMobileState ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'scroll');
+	});
 
-      <div className="mobilemenu__header-title">
-      фестиваль шахмат и джаза 2022
-      </div>
-      <MobileMenuBtnBuyTicket />
-    </div>
-    {/* <div style={{ position: 'relative' }}> */}
-    {/* <div className="mobilemenu_body" displayed={menuMobileState} transit_to={0}>
-      <MobileMenulist displayed={menuMobileState} transit_to={0} />
-      <MobileMenuCommunication displayed={menuMobileState} transit_to={0} />
-    </div> */}
-    {/* </div> */}
-    <div style={{ position: 'relative'}}>
-    <MobileMenuBody displayed={menuMobileState} transit_to={0}/>
-    </div>
-    </>
-  );
-
-};
+	return (
+		<>
+			<div class="m-menu" style={{ position: 'fixed', background: '#FFF', zIndex: 10 }}>
+				<div
+					class="m-menu__btn"
+					onClick={() => {
+						setMenuMobileState(!menuMobileState);
+					}}
+				>
+					<div class="m__btn_top m__btn_top_white"></div>
+					<div class="m__btn_middle m__btn_middle_white"></div>
+					<div class="m__btn_bot m__btn_bot_white"></div>
+				</div>
+				<div class="m-menu__content m-menu__content_white">
+					<span>30-31 июля 20221</span>
+					<img src={asterisk} alt="" />
+					<span>Сад «Эрмитаж2»</span>
+					<img src={asterisk} alt="" />
+					<span>30-31 июля 20223</span>
+					<img src={asterisk} alt="" />
+					<span>Сад «Эрмитаж»4</span>
+					<img src={asterisk} alt="" />
+					<span>30-31 июля 20225</span>
+				</div>
+				<div class="m-menu__buy">
+					<p>КУПИТЬ</p>
+					<p>БИЛЕТ</p>
+				</div>
+			</div>
+			<MobileMenuList displayed={menuMobileState} />
+		</>
+	);
+}
 
 export default MobileMenuHeader;

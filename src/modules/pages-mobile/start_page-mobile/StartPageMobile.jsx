@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 
-
 import MobileMenuHeader from '../../menu-mobile/mobile_menu-header/MobileMenuHeader';
 import './page_styles-mobile/start_page-mobile.scss';
 // import './page_styles-mobile/logo-mobile.scss';
@@ -20,58 +19,24 @@ import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
 import { PageContext } from '../../../PageContext';
 
 function StartPageMobile(params) {
-  // const [page, setPage] = useContext(PageContext);
+	// const [page, setPage] = useContext(PageContext);
 
-  return (
-
-    <>
-      {/* <div className={params.child === true ? 'container page_split child' : 'container page_split'}> */}
-				{/* <div className="left-part">
-					<img src={heading} alt="" />
-				</div> */}
-				{/* <div className="right-part"> */}
-					
-
-      <div class="mobile-container">
-        {/* <MobileMenuHeader /> */}
-            {/* <div class="m-menu">
-                <div class="m-menu__btn">
-                    <div class="m__btn_top"></div>
-                    <div class="m__btn_middle"></div>
-                    <div class="m__btn_bot"></div>
-                </div>
-                <div class="m-menu__content">
-                    <span>30-31 июля 20221</span>
-                    <img src={asterisk} alt="" />
-                    <span>Сад «Эрмитаж2»</span>
-                    <img src={asterisk} alt="" />
-                    <span>30-31 июля 20223</span>
-                    <img src={asterisk} alt="" />
-                    <span>Сад «Эрмитаж»4</span>
-                    <img src={asterisk} alt="" />
-                    <span>30-31 июля 20225</span>
-                </div>
-                <div class="m-menu__buy">
-                    <p>КУПИТЬ</p>
-                    <p>БИЛЕТ</p>
-                </div>
-            </div> */}
-            <div class="m-content m-content-sp">
-                <div class="m-header">
-                  <img src={heading} alt="" />
-                </div>
-                <div className="main-page-mobile__picture">
-                  <span>
-                    <MPSlider />
-                  </span>
-                </div>
-            </div>
-            </div>
-            {/* </div> */}
-    </>
-
-
-  );
+	return (
+		<>
+			<div className="mobile-container" style={{ paddingTop: '48px' }}>
+				<div className="m-content m-content-sp">
+					<div className="m-header">
+						<img src={heading} alt="" />
+					</div>
+					<div className="main-page-mobile__picture" style={{ position: 'relative', height: '400px' }}>
+						{/* <span> */}
+						<MPSlider />
+						{/* </span> */}
+					</div>
+				</div>
+			</div>
+		</>
+	);
 }
 
 export default StartPageMobile;

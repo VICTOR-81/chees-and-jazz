@@ -45,6 +45,27 @@
 	}
 }
 
+.btnbuyticket-en{
+	span {
+		white-space: nowrap;
+		animation: scroll-left 0s infinite linear;
+		position: relative;
+		&::after {
+			position: absolute;
+			content: '\a0 buy a ticket\a0\a0 buy a ticket\a0';
+		}
+		&:nth-child(2) {
+			animation: scroll-right 0s infinite linear;
+			padding-right: 100%;
+			&::before {
+				position: absolute;
+				content: '\a0 buy a ticket\a0\a0 buy a ticket\a0';
+				right: 100%;
+			}
+		}
+	}
+}
+
 @keyframes scroll-left {
 	0% {
 		transform: translateX(0);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 
 import { useSpring, animated } from 'react-spring';
 
@@ -7,6 +8,8 @@ import menu_arrow from '../../../assets/icons/menu-arrow.svg';
 import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
 
 function MenuBody(params) {
+	const { t, i18n } = useTranslation();
+
 	const { x } = useSpring({
 		x: params.displayed ? 0 : 10,
 	});
@@ -16,14 +19,14 @@ function MenuBody(params) {
 			<ul>
 				<li>
 					<span>01 /</span>
-					<a href="/jazz">Джаз</a>
+					<a href="/jazz">{t("jazz")}</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>
 				</li>
 				<li>
 					<span>02 /</span>
-					<a href="/chess">Шахматы</a>
+					<a href="/chess">{t("chess")}</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>
@@ -44,7 +47,7 @@ function MenuBody(params) {
 				</li> */}
 				<li>
 					<span>03 /</span>
-					<a href="/events">События</a>
+					<a href="/events">{t("events")}</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>
@@ -58,7 +61,7 @@ function MenuBody(params) {
 				</li> */}
 				<li>
 					<span>04 /</span>
-					<a href="/final">Контакты</a>
+					<a href="/final">{t("events_contacts")}</a>
 					<span>
 						<img src={menu_arrow} alt="" />
 					</span>

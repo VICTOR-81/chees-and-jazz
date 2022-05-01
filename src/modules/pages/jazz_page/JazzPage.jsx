@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSpring } from 'react-spring';
 
 import './page_styles/jazz_cards.scss';
@@ -23,23 +24,23 @@ import { PageContext } from '../../../PageContext';
 const artists = [
 	{
 		pic: artist_detail1,
-		name: 'Леонид Агутин',
+		// name: 'Леонид Агутин',
+		name: 'author-name',
 		date: '31.07',
-		detail_date: '31 ИЮЛЯ 2022',
+		detail_date: 'date',
 		time: '18:30',
 		time_end: '20:15',
 		detailed: artist_detail1,
-		description:
-			'Леонид Агутин - маэстро, который не нуждается в представлении. Один из главных музыкантов отечественной сцены, его песни живут в сердце каждого из нас. Приходите спеть любимую в прекрасном Саду “Эрмитаж”.',
+		description: 'artist_description',
 	},
 	{
 		// pic: artist2,
 		pic: artist_avatar,
 		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
+		name: 'anons',
 		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
+		detail_date: '',
+		time_end: '',
 		time: '',
 		detailed: artist_avatar,
 		description: '',
@@ -48,10 +49,10 @@ const artists = [
 		// pic: artist2,
 		pic: artist_avatar,
 		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
+		name: 'anons',
 		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
+		detail_date: '',
+		time_end: '',
 		time: '',
 		detailed: artist_avatar,
 		description: '',
@@ -60,115 +61,23 @@ const artists = [
 		// pic: artist2,
 		pic: artist_avatar,
 		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
+		name: 'anons',
 		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
+		detail_date: '',
+		time_end: '',
 		time: '',
 		detailed: artist_avatar,
 		description: '',
-	},
-	{
-		// pic: artist2,
-		pic: artist_avatar,
-		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
-		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
-		time: '',
-		detailed: artist_avatar,
-		description: '',
-	},
-	{
-		// pic: artist2,
-		pic: artist_avatar,
-		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
-		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
-		time: '',
-		detailed: artist_avatar,
-		description: '',
-	},
-	{
-		// pic: artist2,
-		pic: artist_avatar,
-		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
-		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
-		time: '',
-		detailed: artist_avatar,
-		description: '',
-	},
-	{
-		// pic: artist2,
-		pic: artist_avatar,
-		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
-		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
-		time: '',
-		detailed: artist_avatar,
-		description: '',
-	},
-	{
-		// pic: artist2,
-		pic: artist_avatar,
-		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
-		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
-		time: '',
-		detailed: artist_avatar,
-		description: '',
-	},
-	{
-		// pic: artist2,
-		pic: artist_avatar,
-		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
-		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
-		time: '',
-		detailed: artist_avatar,
-		description: '',
-	},
-	{
-		// pic: artist2,
-		pic: artist_avatar,
-		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
-		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
-		time: '',
-		detailed: artist_avatar,
-		description: '',
-	},
-	{
-		// pic: artist2,
-		pic: artist_avatar,
-		// name: 'Portico Quartet',
-		name: 'Скоро анонс',
-		date: '',
-		detail_date: '31 ИЮЛЯ 2022',
-		time_end: '20:15',
-		time: '',
-		detailed: artist_avatar,
-		description: '222222222222',
 	},
 ];
 
 function JazzPage(params) {
 	const [isArtist, setIsArtist] = useState(null);
 	const [pageContext, setPageContext] = useContext(PageContext);
+	const { t, i18n } = useTranslation();
+	const changeLanguage = (language) => {
+		i18n.changeLanguage(language);
+	};
 
 	// const artistForward = useSpring({
 	// 	from: { transform: 'translateX(0px)' },
@@ -223,7 +132,17 @@ function JazzPage(params) {
 				<div className="jazz-content">
 					<div className="jazz-content__top">
 						<div className="jazz-marquee-w" style={{ paddingTop: '40px' }}>
-							<div className={params.child ? 'jazz_title title_cnj' : 'jazz_title title_cnj initialized'}>ДЖАЗ ДЖАЗ&nbsp;</div>
+							<div
+								className={
+									params.child
+										? 'jazz_title title_cnj'
+										: i18n.translator.language == 'ru'
+										? 'jazz_title title_cnj initialized'
+										: 'jazz_title title_cnj initialized jazz_title-en'
+								}
+							>
+								{t('jazz')} {t('jazz')}&nbsp;
+							</div>
 						</div>
 
 						<div className="jazz-right">
@@ -247,23 +166,23 @@ function JazzPage(params) {
 						pageContext.swipeForward();
 					}}
 				>
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
-					<div className="chess-button__content2 ">ШАХМАТЫ</div>
+					<div className="chess-button__content2 ">{t('chess')}</div>
 					<img src={arrow} alt="" />
 				</div>
 			</div>

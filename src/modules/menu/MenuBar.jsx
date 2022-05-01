@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { PageContext } from '../../PageContext';
+import { useTranslation } from 'react-i18next';
 
 import './sidebar.scss';
 import yt from '../../assets/icons/youtube.svg';
@@ -38,7 +39,7 @@ function MenuBar() {
 	}
 
 	const menu_top = menuState ? (
-		'ФЕСТИВАЛЬ ШАХМАТ И ДЖАЗА 2022'
+		<p style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>ФЕСТИВАЛЬ ШАХМАТ И ДЖАЗА 2022</p>
 	) : (
 		<img
 			style={{ cursor: 'pointer' }}
@@ -50,10 +51,43 @@ function MenuBar() {
 		/>
 	);
 
+	const { t, i18n } = useTranslation();
+
+	const changeLanguage = (language) => {
+		i18n.changeLanguage(language);
+	};
+	console.log(i18n.language);
+
 	return (
 		<div className="menu_container">
 			<div className="sidebar" style={theme}>
-				<div className="sidebar__title">{menu_top}</div>
+				<div className="sidebar__title">
+					{menu_top}
+					{i18n.language === 'ru' ? (
+						<button
+							onClick={() => changeLanguage('en')}
+							style={
+								page.pages[page.current].theme === 'dark' && !menuState
+									? { color: '#fff', cursor: 'pointer', fontSize: '20px', padding: 0, marginTop: '20px' }
+									: { color: '#000', cursor: 'pointer', fontSize: '20px', padding: 0, marginTop: '20px' }
+							}
+						>
+							EN
+						</button>
+					) : (
+						<button
+							onClick={() => changeLanguage('ru')}
+							style={
+								page.pages[page.current].theme === 'dark'
+									? { color: '#fff', cursor: 'pointer', fontSize: '20px', padding: 0, marginTop: '20px' }
+									: { color: '#000', cursor: 'pointer', fontSize: '20px', padding: 0, marginTop: '20px' }
+							}
+						>
+							RU
+						</button>
+					)}
+				</div>
+
 				<div className="sidebar__menu-icon" onClick={() => setMenuState(!menuState)}>
 					<img src={buttons.menu_toggle} alt="" />
 				</div>

@@ -51,16 +51,6 @@ function App() {
 			page: <FinalPage child={true} />,
 			theme: 'dark',
 		},
-		// {
-		// 	path: '/startmobile',
-		// 	page: <StartPageMobile child={true} />,
-		// 	theme: 'dark',
-		// },
-		// {
-		// 	path: '/jazzmobile',
-		// 	page: <JazzPageMobile child={true} />,
-		// 	theme: 'dark',
-		// },
 	];
 
 	const pageNum = getPageNum();
@@ -156,17 +146,20 @@ function App() {
 	// } else {
 	// 	window.removeEventListener('wheel', window.handlePageScroll);
 	// }
+
 	function handlePageScroll(scroll) {
 		if (pageContext.context === 'scroll') {
-			if (scroll.deltaY == 100 && pageContext.current !== pages.length - 1) {
+			setScrollContext('transition');
+
+			if (scroll.deltaY > 0 && pageContext.current !== pages.length - 1) {
 				forward();
-				console.log('forward');
-			} else if (scroll.deltaY == -100 && pageContext.current !== 0) {
+			} else if (scroll.deltaY < 0 && pageContext.current !== 0) {
 				backwards();
-				console.log('backwards');
 			}
+			console.log(scroll.deltaY);
+			scroll.deltaY = 0;
 			console.log('context is scroll!!');
-		} else console.log('context is not scroll');
+		} else console.log(`context is ${scrollContext}`);
 	}
 	function rz() {
 		if (isDesktop()) {
@@ -210,6 +203,7 @@ function App() {
 										navigate(pages[pageContext.current + 1].path);
 									}
 								}
+								setScrollContext('scroll');
 							}
 						}}
 					>
@@ -232,81 +226,14 @@ function App() {
 	} else if (version === 'mobile') {
 		document.body.style.overflow = 'scroll';
 		return (
-			/*<h1>Mobile</h1>;*/
-			// <PageContext.Provider value={[pageContext, setPageContext]}>
-			// 	{/* <MobileMenu /> */}
-			// 	<animated.div
-			// 		className={anim === '' ? 'application' : 'application animated-now'}
-			// 		ref={container}
-			// 		style={anim === '' ? {} : applyAnimation(anim)}
-			// 		onTransitionEnd={(e) => {
-			// 			if (e.propertyName === 'transform') {
-			// 				if (anim === 'backwards') {
-			// 					if (pageContext.current - 1 > -1) {
-			// 						setHelper(!helper);
-			// 						setAnim('');
-			// 						navigate(pages[pageContext.current - 1].path);
-			// 					}
-			// 				} else if (anim === 'forward') {
-			// 					if (pageContext.current + 1 < pages.length) {
-			// 						setHelper(!helper);
-			// 						setAnim('');
-			// 						navigate(pages[pageContext.current + 1].path);
-			// 					}
-			// 				}
-			// 			}
-			// 		}}
-			// 	>
-			// 		{prev_page()}
-
-			// 		<Suspense fallback={<div>Loading...</div>}>
-			// 			<Routes>
-			// 				<Route exact path="/" element={<StartPageMobile />} />
-			// 				{/* <Route path="/jazz" element={<JazzPage />} /> */}
-			// 				{/* <Route path="/chess" element={<ChessPage />} /> */}
-			// 			</Routes>
-			// 		</Suspense>
-			// 		{next_page()}
-			// 	</animated.div>
-			// </PageContext.Provider>
-			// <PageContext.Provider value={[pageContext, setPageContext]}>
-			// 	<StartPageMobile />
-			// 	<MobileMenu />
-			// 	<JazzPageMobile />
-			// 	<ArtistPageMobile />
-			// </PageContext.Provider>
 			<>
 				<MobileMenuHeader />
 				<StartPageMobile />
-				{/* <MobileMenu /> */}
 				<JazzPageMobile />
-				<ArtistPageMobile />
 				<ChessPageMobile />
 				<EventsPageMobile />
 				<FinalPageMobile />
 			</>
-			// <PageContext.Provider value={[pageContext, setPageContext]}>
-			// 	<MobileMenuHeader />
-			//  	<StartPageMobile />
-			//  	{/* <MobileMenu /> */}
-			//  	<JazzPageMobile />
-			//  	<ArtistPageMobile />
-			//  	<ChessPageMobile />
-			//  	<EventsPageMobile />
-			//  	<FinalPageMobile />
-			// </PageContext.Provider>
-			// <>
-			// 	<MobileMenuHeader />
-			// 	<Suspense fallback={<div>Loading...</div>}>
-			// 			<Routes>
-			// 				<Route exact path="/startmobile" element={<StartPageMobile />} />
-			// 				{/* <Route path="/jazz" element={<JazzPage />} /> */}
-			// 				{/* <Route path="/chess" element={<ChessPage />} /> */}
-			// 				{/* <Route path="/final" element={<FinalPage />} /> */}
-			// 				<Route path="/jazzmobile" element={<JazzPageMobile />} />
-			// 			</Routes>
-			// 		</Suspense>
-			// </>
 		);
 	}
 }

@@ -17,7 +17,14 @@ function MPSlider() {
 	});
 
 	return slides.map((el, i) => {
-		return <img src={el} key={i} style={opacityCounter === i ? { opacity: 1 } : { opacity: 0 }} alt="" />;
+		return (
+			<img
+				src={el}
+				key={i}
+				style={opacityCounter === i ? { opacity: 1, height: '100%', width: '100%' } : { opacity: 0, height: '100%', width: '100%' }}
+				alt=""
+			/>
+		);
 	});
 }
 export default MPSlider;

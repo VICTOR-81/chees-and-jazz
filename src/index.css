@@ -124,13 +124,20 @@ table {
 }
 @font-face {
 	font-family: Soviet;
-	/* src: url(fonts/); */
 }
 #root,
 body,
 html {
 	height: 100%;
 	width: 100%;
+}
+@media screen and (max-width: 768px) {
+	#root,
+	body,
+	html {
+		height: auto;
+		width: auto;
+	}
 }
 body {
 	overflow: hidden;
@@ -183,11 +190,23 @@ body {
 	color: #000;
 	content: 'Шахматы Шахматы Шахматы       \a0';
 }
+.chess_title-en::after {
+	position: absolute;
+	color: #000;
+	content: 'Chess Chess Chess       \a0';
+}
 .jazz_title::after {
 	color: #fff;
 
 	position: absolute;
 	content: 'Джаз Джаз Джаз Джаз\a0';
+}
+
+.jazz_title-en::after {
+	color: #fff;
+
+	position: absolute;
+	content: 'Jazz Jazz Jazz Jazz\a0';
 }
 @keyframes scroll-left {
 	0% {

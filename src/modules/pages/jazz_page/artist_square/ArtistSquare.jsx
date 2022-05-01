@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import img from '../../../../assets/icons/Rectangle7.svg';
 
 function ArtistSquare(params) {
+	const { t, i18n } = useTranslation();
+
 	return params.artists.map((el, i) => {
 		return (
 			<div
@@ -31,10 +34,10 @@ function ArtistSquare(params) {
 					<div className="jazz__card-bot">
 						<div className="card-bot-marquee-w">
 							<div className="card-bot-marquee">
-								<span>{el.name}&nbsp; &nbsp;</span>
+								<span>{t(el.name)}&nbsp; &nbsp;</span>
 							</div>
 							<div className="card-bot-marquee card-bot-marquee2">
-								<span>{el.name}&nbsp; &nbsp;</span>
+								<span>{t(el.name)}&nbsp; &nbsp;</span>
 							</div>
 						</div>
 					</div>

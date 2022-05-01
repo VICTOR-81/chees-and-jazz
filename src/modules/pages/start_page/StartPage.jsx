@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useTranslation } from "react-i18next";
 
 import './page_styles/start_page.scss';
 import './page_styles/logo.scss';
@@ -16,9 +17,17 @@ import MPSlider from './slider_mp/MPSlider';
 import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
 import { PageContext } from '../../../PageContext';
 
+
+
+  
+
 function StartPage(params) {
 	const [page, setPage] = useContext(PageContext);
-	const date = '30 июля 2022';
+	const { t, i18n } = useTranslation();
+	const changeLanguage = (language) => {i18n.changeLanguage(language);};
+	// const date = '{t("start_page.date")}';
+
+	
 	return (
 		<>
 			<div className={params.child === true ? 'container page_split child' : 'container page_split'}>
@@ -34,20 +43,20 @@ function StartPage(params) {
 					</div>
 
 					<div className="info-container">
-						<div>{date}</div>
+						<div>{t("date")}</div>
 						<img src={asterisk} alt="" />
 						<div>Сад «Эрмитаж»</div>
 						<img src={asterisk} alt="" />
-						<div>{date}</div>
+						<div>{t("date")}</div>
 						<img src={asterisk} alt="" />
 						<div>Сад «Эрмитаж»</div>
 						<img src={asterisk} alt="" />
-						<div>{date}</div>
+						<div>{t("date")}</div>
 						<img src={asterisk} alt="" />
 					</div>
 					<div className="bottom-container">
 						<div className="bottom-content">
-							<div className="date-content">30 июля 2022</div>
+							<div className="date-content">{t("date")}</div>
 							{/* <div className="date-content">31 июля 2022</div> */}
 
 							<div
@@ -57,7 +66,8 @@ function StartPage(params) {
 									page.swipeForward();
 								}}
 							>
-								<div className="author-name">Леонид Агутин</div>
+								{/* <div className="author-name">Леонид Агутин</div> */}
+								<div className="author-name">{t("author-name")}</div>
 								<div className="author-picture">
 									<img src={agutin} alt="" />
 								</div>
