@@ -52,6 +52,7 @@ function MenuBar() {
 	);
 
 
+	
 	const { t, i18n } = useTranslation();
 
   const changeLanguage = (language) => {
