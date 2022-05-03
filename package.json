@@ -13,11 +13,12 @@
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
 		"react-i18next": "^11.16.7",
+		"react-id-swiper": "^4.0.0",
 		"react-router-dom": "^6.3.0",
 		"react-scripts": "5.0.1",
 		"react-spring": "^9.4.4",
 		"sass": "^1.49.7",
-		"swiper": "^8.0.6",
+		"swiper": "^8.1.4",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {

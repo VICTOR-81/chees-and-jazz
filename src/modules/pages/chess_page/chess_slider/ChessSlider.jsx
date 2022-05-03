@@ -8,6 +8,6 @@ const slides = [slider_1, slider_2, slider_3, slider_4];
 
 export default function ChessSlider(active) {
 	return slides.map((el, i) => {
-		return <img src={el} width="610" height="100%" key={i} style={active.active === i ? { opacity: 1 } : { opacity: 0 }} alt="" />;
+		return <img src={el} width="100%" height="100%" key={i} style={active.active === i ? { opacity: 1 } : { opacity: 0 }} alt="" />;
 	});
 }

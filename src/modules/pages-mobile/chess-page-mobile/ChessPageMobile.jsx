@@ -52,9 +52,9 @@ function ChessPageMobile() {
 		},
 	];
 	return (
-		<div class="mobile-container mobile-container_white">
+		<div class="mobile-container mobile-container_white" id="chess">
 			<div class="m-content">
-				<div class="jazz-marquee-w">
+				<div class="jazz-marquee-w r-line">
 					<div class="jazz-marquee jazz-marquee_white ">
 						<span>ШАХМАТЫ ШАХМАТЫ&nbsp;</span>
 					</div>

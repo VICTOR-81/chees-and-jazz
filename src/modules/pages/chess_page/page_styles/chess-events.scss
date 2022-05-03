@@ -85,14 +85,4 @@
 	.chess-picture img {
 		max-width: 55vw;
 	}
-	.chess-event:nth-child(4) {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 1219px) {
-	.chess-event:nth-child(3),
-	.chess-event:nth-child(4) {
-		display: none;
-	}
 }

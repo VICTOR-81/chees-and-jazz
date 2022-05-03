@@ -20,7 +20,6 @@ function JazzPageMobile() {
 	const artists = [
 		{
 			pic: artist_detail1,
-			// name: 'Леонид Агутин',
 			name: t('author-name'),
 			date: '31.07',
 			detail_date: t('date'),
@@ -28,42 +27,6 @@ function JazzPageMobile() {
 			time_end: '20:15',
 			detailed: artist_detail1,
 			description: t('artist_description'),
-		},
-		{
-			// pic: artist2,
-			pic: artist_avatar,
-			// name: 'Portico Quartet',
-			name: 'anons',
-			date: '',
-			detail_date: '',
-			time_end: '',
-			time: '',
-			detailed: artist_avatar,
-			description: '',
-		},
-		{
-			// pic: artist2,
-			pic: artist_avatar,
-			// name: 'Portico Quartet',
-			name: t('anons'),
-			date: '',
-			detail_date: '',
-			time_end: '',
-			time: '',
-			detailed: artist_avatar,
-			description: '',
-		},
-		{
-			// pic: artist2,
-			pic: artist_avatar,
-			// name: 'Portico Quartet',
-			name: t('anons'),
-			date: '',
-			detail_date: '',
-			time_end: '',
-			time: '',
-			detailed: artist_avatar,
-			description: '',
 		},
 	];
 
@@ -75,34 +38,34 @@ function JazzPageMobile() {
 
 	if (isCarousel === null) {
 		return (
-			<div class="mobile-container" style={{ height: '100vh' }}>
-				<div class="m-content m-content-jazz">
-					<div class="jazz-marquee-w">
-						<div class="jazz-marquee ">
+			<div className="mobile-container" style={{ height: '100vh' }} id="jazz">
+				<div className="m-content m-content-jazz">
+					<div className="jazz-marquee-w r-line">
+						<div className="jazz-marquee">
 							<span>ДЖАЗ ДЖАЗ ДЖАЗ&nbsp;</span>
 						</div>
-						<div class="jazz-marquee jazz-marquee2">
+						<div className="jazz-marquee jazz-marquee2">
 							<span>ДЖАЗ ДЖАЗ ДЖАЗ&nbsp;</span>
 						</div>
 					</div>
 
-					<div class="m-cards__container">
+					<div className="m-cards__container">
 						{artists.map((el, i) => {
 							return (
 								<div
-									class="m-card"
+									className="m-card"
 									key={i}
 									onClick={() => {
 										setIsCarousel(i);
 									}}
 								>
-									<div class="m-card__pic">
-										<img src={el.pic} alt="" />
+									<div className="m-card__pic">
+										<img src={el.pic} alt="" style={{ objectFit: 'cover' }} />
 									</div>
-									<div class="m-card__date">
+									<div className="m-card__date">
 										{el.date}, {el.time}
 									</div>
-									<div class="m-card__name">{el.name}</div>
+									<div className="m-card__name">{el.name}</div>
 								</div>
 							);
 						})}

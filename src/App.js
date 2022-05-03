@@ -141,16 +141,8 @@ function App() {
 		} else return <div style={{ height: '100vh', width: '100vw' }}></div>;
 	};
 
-	// if (pageContext.context === 'scroll') {
-	// 	window.addEventListener('wheel', window.handlePageScroll);
-	// } else {
-	// 	window.removeEventListener('wheel', window.handlePageScroll);
-	// }
-
 	function handlePageScroll(scroll) {
 		if (pageContext.context === 'scroll') {
-			setScrollContext('transition');
-
 			if (scroll.deltaY > 0 && pageContext.current !== pages.length - 1) {
 				forward();
 			} else if (scroll.deltaY < 0 && pageContext.current !== 0) {
@@ -161,12 +153,15 @@ function App() {
 			console.log('context is scroll!!');
 		} else console.log(`context is ${scrollContext}`);
 	}
+
 	function rz() {
 		if (isDesktop()) {
 			setVersion('desktop');
 			document.body.style.overflow = 'hidden';
+			document.documentElement.style.overflow = 'hidden';
 		} else {
 			setVersion('mobile');
+			document.documentElement.style.overflow = 'scroll';
 			document.body.style.overflow = 'scroll';
 		}
 	}
@@ -175,6 +170,7 @@ function App() {
 
 	if (version === 'desktop') {
 		document.body.style.overflow = 'hidden';
+		document.documentElement.style.overflow = 'hidden';
 
 		return (
 			<PageContext.Provider value={[pageContext, setPageContext]}>
@@ -225,6 +221,37 @@ function App() {
 		);
 	} else if (version === 'mobile') {
 		document.body.style.overflow = 'scroll';
+		document.documentElement.style.overflow = 'scroll';
+		function isInViewport(element) {
+			const rect = element.getBoundingClientRect();
+			return (
+				rect.top >= 0 &&
+				rect.left >= 0 &&
+				rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+				rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+			);
+		}
+		function calculateLines() {
+			const strings = document.querySelectorAll('.r-line');
+			let found = false;
+			for (let i = 0; i < strings.length; i++) {
+				if (isInViewport(strings[i]) && !found) {
+					[...strings[i].querySelectorAll('span')].forEach((el) => {
+						el.style.animationPlayState = 'running';
+					});
+					found = true;
+				} else {
+					[...strings[i].querySelectorAll('span')].forEach((el) => {
+						el.style.animationPlayState = 'paused';
+					});
+				}
+			}
+		}
+		document.addEventListener('wheel', calculateLines);
+		document.addEventListener('touchstart', calculateLines);
+		document.addEventListener('touchmove', calculateLines);
+		document.addEventListener('touchend', calculateLines);
+
 		return (
 			<>
 				<MobileMenuHeader />

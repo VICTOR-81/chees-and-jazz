@@ -24,7 +24,7 @@ function MenuBar() {
 	console.log(params);
 	const theme = {
 		background: page.pages[page.current].theme === 'dark' && !menuState ? '#000' : '#F4F3F3',
-		borderRight: page.pages[page.current].theme === 'dark' && !menuState ? '1px solid #F4F3F3' : '1px solid #BEBEBE',
+		borderRight: page.pages[page.current].theme === 'dark' && !menuState ? '1px solid #4f4f4f' : '1px solid #BEBEBE',
 	};
 	const buttons = {
 		vk: page.pages[page.current].theme === 'dark' && !menuState ? light_vk : vk,
@@ -56,7 +56,6 @@ function MenuBar() {
 	const changeLanguage = (language) => {
 		i18n.changeLanguage(language);
 	};
-	console.log(i18n.language);
 
 	return (
 		<div className="menu_container">

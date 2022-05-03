@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './mobile_menu-list.scss';
 
 import { useSpring, animated } from 'react-spring';
+import { Manipulation } from 'swiper';
+import i18n from '../../../i18n';
 
 function MobileMenuList(params) {
 	const { x } = useSpring({
 		x: params.displayed ? 0 : 10,
 	});
+
+	const menu = [
+		{
+			num: '01',
+			anchor: 'jazz',
+			title: 'Джаз',
+		},
+		{
+			num: '02',
+			anchor: 'chess',
+			title: 'Шахматы',
+		},
+		{
+			num: '03',
+			anchor: 'events',
+			title: 'События',
+		},
+		{
+			num: '04',
+			anchor: 'contacts',
+			title: 'Контакты',
+		},
+	];
+
+	const [clang, setClang] = useState(i18n.language);
 
 	return (
 		<animated.div
@@ -26,22 +53,45 @@ function MobileMenuList(params) {
 			}}
 		>
 			<ul>
+				{menu.map((el, i) => {
+					return (
+						<li key={i}>
+							<span>{el.num} /</span>
+							<a
+								href={`#${el.anchor}`}
+								onClick={(e) => {
+									e.preventDefault();
+									params.close();
+									const targ = document.querySelector(`#${el.anchor}`);
+									targ.scrollIntoView({ behavior: 'smooth', block: 'start' });
+								}}
+							>
+								{el.title}
+							</a>
+						</li>
+					);
+				})}
 				<li>
-					<span>01 /</span>
-					<a href="/jazzmobile">Джаз</a>
-				</li>
-				<li>
-					<span>02 /</span>
-					<a href="/chessmobile">Шахматы</a>
-				</li>
-
-				<li>
-					<span>03 /</span>
-					<a href="">События</a>
-				</li>
-				<li>
-					<span>04 /</span>
-					<a href="/startmobile">Контакты</a>
+					<span>**/</span>
+					{clang === 'ru' ? (
+						<a
+							onClick={() => {
+								i18n.changeLanguage('en');
+								setClang(i18n.language);
+							}}
+						>
+							ENGLISH VERSION
+						</a>
+					) : (
+						<a
+							onClick={() => {
+								i18n.changeLanguage('ru');
+								setClang(i18n.language);
+							}}
+						>
+							РУССКАЯ ВЕРСИЯ
+						</a>
+					)}
 				</li>
 			</ul>
 		</animated.div>
