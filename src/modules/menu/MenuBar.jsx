@@ -62,7 +62,7 @@ function MenuBar() {
 	return (
 		<div className="menu_container">
 			<div className="sidebar" style={theme}>
-				<div className="sidebar__title">
+				{/* <div className="sidebar__title">
 					{menu_top}
 				<div className="sidebar__language">
 					<button onClick={() => changeLanguage("ru")} style={{ color: 'blue' }}>
@@ -72,6 +72,32 @@ function MenuBar() {
 						<img src={en} alt="" style={{ width: '30px' }}/>
 					</button>
 				</div>
+				</div> */}
+				<div className="sidebar__title">
+					{menu_top}
+					{i18n.language === 'ru' ? (
+						<button
+							onClick={() => changeLanguage('en')}
+							style={
+								page.pages[page.current].theme === 'dark' && !menuState
+									? { color: '#fff', cursor: 'pointer', fontSize: '20px', padding: 0, marginTop: '20px' }
+									: { color: '#000', cursor: 'pointer', fontSize: '20px', padding: 0, marginTop: '20px' }
+							}
+						>
+							EN
+						</button>
+					) : (
+						<button
+							onClick={() => changeLanguage('ru')}
+							style={
+								page.pages[page.current].theme === 'dark'
+									? { color: '#fff', cursor: 'pointer', fontSize: '20px', padding: 0, marginTop: '20px' }
+									: { color: '#000', cursor: 'pointer', fontSize: '20px', padding: 0, marginTop: '20px' }
+							}
+						>
+							RU
+						</button>
+					)}
 				</div>
 				
 				<div className="sidebar__menu-icon" onClick={() => setMenuState(!menuState)}>
