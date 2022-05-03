@@ -3,6 +3,7 @@
 
   "festival": "CHESS AND JAZZ FESTIVAL 2022",
 
+  "garden": "«Hermitage» Garden",
   "date": "30 july 2022",
   "author-name": "Leonid Agutin",
   "anons": "Announcement Soon",
@@ -47,9 +48,12 @@
   "events_title3": "Partiya II",
   "events_title4": "Partiya I",
   "events_title5": "Chess & Jazz Almaty",
-  "events_contacts": "CONTACTS"
+  "events_contacts": "CONTACTS",
 
-
+  "final_date1": "30 july 2022",
+  "final_date2": "Chess and Jazz Festival",
+  "final_date3": "Moscow, «Hermitage» Garden",
+  "right": "All rights reserved"
 }
 
 

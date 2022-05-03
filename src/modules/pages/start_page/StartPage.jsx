@@ -45,11 +45,11 @@ function StartPage(params) {
 					<div className="info-container">
 						<div>{t("date")}</div>
 						<img src={asterisk} alt="" />
-						<div>Сад «Эрмитаж»</div>
+						<div>{t("garden")}</div>
 						<img src={asterisk} alt="" />
 						<div>{t("date")}</div>
 						<img src={asterisk} alt="" />
-						<div>Сад «Эрмитаж»</div>
+						<div>{t("garden")}</div>
 						<img src={asterisk} alt="" />
 						<div>{t("date")}</div>
 						<img src={asterisk} alt="" />

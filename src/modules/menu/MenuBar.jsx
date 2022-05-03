@@ -14,6 +14,8 @@ import light_menu from '../../assets/icons/menu-darkmenubutton.svg';
 import menu_idle from '../../assets/icons/menusquare.svg';
 import light_menu_cross from '../../assets/icons/close-lightmenu-cross.svg';
 import menu_cross from '../../assets/icons/close-darklight.svg';
+import ru from '../../assets/icons/ru.png'
+import en from '../../assets/icons/en.png'
 
 import MenuBody from './menu_body/MenuBody';
 
@@ -60,9 +62,18 @@ function MenuBar() {
 	return (
 		<div className="menu_container">
 			<div className="sidebar" style={theme}>
-				<div className="sidebar__title">{menu_top}</div>
-      	<button onClick={() => changeLanguage("ru")} style={{ color: 'blue' }}>RU</button>
-				<button onClick={() => changeLanguage("en")} style={{ color: 'blue' }}>EN</button>
+				<div className="sidebar__title">
+					{menu_top}
+				<div className="sidebar__language">
+					<button onClick={() => changeLanguage("ru")} style={{ color: 'blue' }}>
+						<img src={ru} alt="" style={{ width: '30px' }}/>
+					</button>
+					<button onClick={() => changeLanguage("en")} style={{ color: 'blue' }}>
+						<img src={en} alt="" style={{ width: '30px' }}/>
+					</button>
+				</div>
+				</div>
+				
 				<div className="sidebar__menu-icon" onClick={() => setMenuState(!menuState)}>
 					<img src={buttons.menu_toggle} alt="" />
 				</div>

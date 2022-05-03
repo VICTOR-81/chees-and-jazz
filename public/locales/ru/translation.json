@@ -3,6 +3,7 @@
 
   "festival": "ФЕСТИВАЛЬ ШАХМАТ И ДЖАЗА 2022",
 
+  "garden": "Сад «Эрмитаж»",
   "date": "30 июля 2022",
   "author-name": "Леонид Агутин",
   "anons": "Скоро анонс",
@@ -47,8 +48,11 @@
   "events_title3": "Партия II",
   "events_title4": "Партия I",
   "events_title5": "Chess & Jazz Алматы",
-  "events_contacts": "КОНТАКТЫ"
+  "events_contacts": "КОНТАКТЫ",
 
-
+  "final_date1": "30 июля 2022",
+  "final_date2": "Фестиваль шахмат и джаза",
+  "final_date3": "Москва, сад «Эрмитаж»",
+  "right": "Все права защищены"
 
 }

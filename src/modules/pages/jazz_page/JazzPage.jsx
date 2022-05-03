@@ -234,7 +234,7 @@ function JazzPage(params) {
 						<div className="jazz-right">
 							<BtnTicket />
 							<div className="jazz__sponsor">
-								ПРИ ПОДДЕРЖКЕ:
+								{/* ПРИ ПОДДЕРЖКЕ: */}
 								<img src="assets/icons/Harman_Kardon_Logosupported.svg" alt="" />
 							</div>
 						</div>

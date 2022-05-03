@@ -1,10 +1,16 @@
 import React from 'react';
 // import GoogleMapReact from 'google-map-react';
 import Map from '../../map/Map';
+import BtnTicket from '../../../ui_components/ticket_btn/BtnTicket';
+import { useTranslation } from "react-i18next";
 
 import './page_styles/final.scss';
+import { t } from 'i18next';
 
 function FinalPage(params) {
+
+	const { t, i18n } = useTranslation();
+
 	return (
 		<div className={params.child === true ? 'container final-cont child' : 'container final-cont'}>
 			{/* <nav class="nav-container">
@@ -23,7 +29,8 @@ function FinalPage(params) {
 					<div class="main-title">CHESS & JAZZ</div>
 
 					<div class="jazz-right">
-						<div class="buy-ticket">
+						<BtnTicket />
+						{/* <div class="buy-ticket">
 							<div class="marquee-w">
 								<div class="marquee marquee1">
 									<span class="marquee13">КУПИТЬ БИЛЕТ КУПИТЬ БИЛЕТ КУПИТЬ БИЛЕТ &nbsp;&nbsp;</span>
@@ -40,7 +47,7 @@ function FinalPage(params) {
 									<span class="marquee23">КУПИТЬ БИЛЕТ КУПИТЬ БИЛЕТ КУПИТЬ БИЛЕТ &nbsp;&nbsp;</span>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<div class="final-content__bot">
@@ -75,12 +82,12 @@ function FinalPage(params) {
 						<div style={{ height: '100vh', width: '100%' }}></div>
 						<div class="final__info">
 							<div class="final-date">
-								<p> 30—31 июля 2022</p>
-								<p> Фестиваль шахмат и джаза </p>
-								<p>Москва, сад «Эрмитаж»</p>
+								<p>{t("final_date1")}</p>
+								<p>{t("final_date2")}</p>
+								<p>{t("final_date3")}</p>
 							</div>
 							<div class="final_copyright">
-								<p> &copy;&nbsp;2022. Все права защищены</p>
+								<p> &copy;&nbsp;2022. {t("right")}</p>
 								<p>info@chessandjazz.com</p>
 							</div>
 						</div>
