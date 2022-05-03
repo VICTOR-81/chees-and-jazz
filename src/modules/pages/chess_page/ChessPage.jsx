@@ -26,20 +26,6 @@ import { t } from 'i18next';
 const events = [
 	{
 		day: 'chess_day',
-		time: '14:00 - 20:00',
-		name: 'CHESS SCHOOL',
-		person: false,
-		description: 'chess_description1',
-	},
-	{
-		day: 'chess_day',
-		time: '14:00 - 20:00',
-		name: 'CHESS VILLAGE',
-		person: false,
-		description: 'chess_description2',
-	},
-	{
-		day: 'chess_day',
 		time: '16:00 - 20:00',
 		name: 'CHESS CUP',
 		person: false,
@@ -51,6 +37,20 @@ const events = [
 		name: 'CHESS SEANCE',
 		person: false,
 		description: 'chess_description4',
+	},
+	{
+		day: 'chess_day',
+		time: '14:00 - 20:00',
+		name: 'CHESS VILLAGE',
+		person: false,
+		description: 'chess_description2',
+	},
+	{
+		day: 'chess_day',
+		time: '14:00 - 20:00',
+		name: 'CHESS SCHOOL',
+		person: false,
+		description: 'chess_description1',
 	},
 ];
 
