@@ -73,6 +73,7 @@ function JazzPage(params) {
 		isArtist !== null ? pageContext.setContext('artist') : pageContext.setContext('scroll');
 	});
 
+	console.log(i18n.translator.language);
 	if (isArtist == null) {
 		return (
 			<div className={params.child === true ? 'container jazz-cont child' : 'container jazz-cont'}>
@@ -81,11 +82,13 @@ function JazzPage(params) {
 						<div className="jazz-marquee-w" style={{ paddingTop: '40px' }}>
 							<div
 								className={
-									params.child
+									params.child && i18n.translator.language == 'en'
+										? 'jazz_title-en title_cnj'
+										: params.child && i18n.translator.language == 'ru'
 										? 'jazz_title title_cnj'
-										: i18n.translator.language == 'ru'
-										? 'jazz_title title_cnj initialized'
-										: 'jazz_title title_cnj initialized jazz_title-en'
+										: i18n.translator.language == 'en'
+										? 'jazz_title-en title_cnj initialized'
+										: 'title_cnj initialized jazz_title'
 								}
 							>
 								{t('jazz')} {t('jazz')}&nbsp;

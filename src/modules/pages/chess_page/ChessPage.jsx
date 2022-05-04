@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 import './page_styles/chess-events.scss';
 import './page_styles/chess-lectures-button.scss';
@@ -68,9 +68,22 @@ function ChessPage(params) {
 		<div className={params.child === true ? 'container chess-cont child' : 'container chess-cont'}>
 			<div className="chess-content">
 				<div className="chess-content__top">
-					<div className="jazz-marquee-w">
+					<div className="jazz-marquee-w" style={{ paddingTop: '40px' }}>
 						<div className="jazz-marquee chess-marquee">
-							<div className={params.child ? 'chess_title title_cnj' : i18n.translator.language == 'ru' ? 'chess_title title_cnj initialized' : 'chess_title title_cnj initialized chess_title-en'}>{t("chess")} {t("chess")}&nbsp;</div>
+							<div
+								className={
+									params.child && i18n.translator.language == 'en'
+										? 'chess_title-en title_cnj'
+										: params.child && i18n.translator.language == 'ru'
+										? 'chess_title title_cnj'
+										: i18n.translator.language == 'en'
+										? 'chess_title-en title_cnj initialized'
+										: 'title_cnj initialized chess_title'
+								}
+								style={{ color: '#000', padding: '5px 0' }}
+							>
+								{t('chess')} {t('chess')}&nbsp;
+							</div>
 						</div>
 					</div>
 
@@ -99,35 +112,35 @@ function ChessPage(params) {
 							pageContext.swipeForward();
 						}}
 					>
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
-						<div className="lectures-button__content2 ">{t("events")}</div>
+						<div className="lectures-button__content2 ">{t('events')}</div>
 						<img src={arrow} alt="" />
 					</div>
 				</div>

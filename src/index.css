@@ -177,6 +177,19 @@ body {
 	white-space: nowrap;
 	position: relative;
 }
+.title_cnj-sec {
+	width: fit-content;
+	font-family: 'Soviet';
+	font-style: normal;
+	font-size: 380px;
+	font-weight: 400;
+	line-height: 90%;
+	letter-spacing: 0.01em;
+	text-transform: uppercase;
+	color: #000;
+	white-space: nowrap;
+	position: relative;
+}
 .title_cnj.initialized {
 	animation: scroll-left 13s infinite linear;
 }
