@@ -10,11 +10,24 @@ i18n.use(Backend)
 		fallbackLng: navigator.language,
 		debug: false,
 		detection: {
-			order: ['queryString', 'cookie'],
-			cache: ['cookie'],
+			order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+
+			lookupQuerystring: 'lng',
+			lookupCookie: 'i18next',
+			lookupLocalStorage: 'i18nextLng',
+			lookupSessionStorage: 'i18nextLng',
+			lookupFromPathIndex: 0,
+			lookupFromSubdomainIndex: 0,
+			caches: ['localStorage', 'cookie'],
 		},
 		interpolation: {
 			escapeValue: false,
+		},
+		Cache: {
+			enabled: true,
+			prefix: 'translation_',
+			expirationTime: Infinity,
+			Version: {},
 		},
 	});
 

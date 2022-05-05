@@ -137,38 +137,25 @@ function App() {
 		} else return <div style={{ height: '100vh', width: '100vw' }}></div>;
 	};
 
-	// const [touchPadAllowScroll, setAllowTouchPadScroll] = useState(true);
-
-	let time = new Date().getTime();
-
 	function handlePageScroll(scroll) {
 		if (scroll.deltaY === 100 || scroll.deltaY === -100) {
 			if (pageContext.context === 'scroll') {
 				if (scroll.deltaY > 0 && pageContext.current !== pages.length - 1) {
 					forward();
-					time = new Date().getTime();
 				} else if (scroll.deltaY < 0 && pageContext.current !== 0) {
 					backwards();
-					time = new Date().getTime();
 				}
-
-				scroll.deltaY = 0;
 			}
 		} else {
-			if (new Date().getTime() - time > 500) {
-				if (pageContext.context === 'scroll') {
-					if (scroll.deltaY > 0 && pageContext.current !== pages.length - 1) {
-						forward();
-						time = new Date().getTime();
-					} else if (scroll.deltaY < 0 && pageContext.current !== 0) {
-						backwards();
-						time = new Date().getTime();
-					}
-
-					scroll.deltaY = 0;
+			if (pageContext.context === 'scroll') {
+				if (scroll.deltaY === 3 && pageContext.current !== pages.length - 1) {
+					forward();
+				} else if (scroll.deltaY === -3 && pageContext.current !== 0) {
+					backwards();
 				}
 			}
 		}
+		scroll.deltaY = 0;
 	}
 
 	function rz() {
@@ -184,6 +171,9 @@ function App() {
 	}
 
 	window.addEventListener('resize', rz);
+	window.addEventListener('touchend', () => {
+		console.log(123);
+	});
 
 	if (version === 'desktop') {
 		document.body.style.overflow = 'hidden';
@@ -233,6 +223,9 @@ function App() {
 						</Suspense>
 						{next_page()}
 					</animated.div>
+				</div>
+				<div style={{ position: 'fixed', width: '80vw', height: '70vh', top: '10bh', left: '10vw' }}>
+					<iframe id="fr" name="coolFrame" width="100%" height="100%" src="about:blank" allow=""></iframe>
 				</div>
 			</PageContext.Provider>
 		);

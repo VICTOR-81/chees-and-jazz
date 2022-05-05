@@ -7,22 +7,21 @@ import Map from '../../map/Map';
 import './page_styles/final.scss';
 
 function FinalPage(params) {
-
 	const { t, i18n } = useTranslation();
 
 	return (
 		<div className={params.child === true ? 'container final-cont child' : 'container final-cont'}>
-			<div class="final-content">
-				<div class="jazz-content__top final-content-top">
-					<div class="main-title">CHESS & JAZZ</div>
+			<div className="final-content">
+				<div className="jazz-content__top final-content-top">
+					<div className="main-title">CHESS & JAZZ</div>
 
-					<div class="jazz-right">
+					<div className="jazz-right">
 						<BtnTicket />
 					</div>
 				</div>
-				<div class="final-content__bot">
+				<div className="final-content__bot">
 					<div
-						class="final_map"
+						className="final_map"
 						style={{
 							width: '60%',
 							paddingBottom: '40px',
@@ -37,19 +36,19 @@ function FinalPage(params) {
 							width="100%"
 							height="100%"
 							style={{ border: 0, filter: 'grayscale(100%) invert(1)' }}
-							allowFullscreen=""
+							allowFullScreen=""
 							loading="lazy"
 						></iframe>
 						<div style={{ height: '100vh', width: '100%' }}></div>
 					</div>
-					<div class="final__info">
-						<div class="final-date">
-							<p>{t("final_date1")}</p>
-							<p>{t("final_date2")}</p>
-							<p>{t("final_date3")}</p>
+					<div className="final__info">
+						<div className="final-date">
+							<p>{t('final_date1')}</p>
+							<p>{t('final_date2')}</p>
+							<p>{t('final_date3')}</p>
 						</div>
-						<div class="final_copyright">
-							<p> &copy;&nbsp;2022. {t("right")}</p>
+						<div className="final_copyright">
+							<p> &copy;&nbsp;2022. {t('right')}</p>
 							<p>info@chessandjazz.com</p>
 						</div>
 					</div>

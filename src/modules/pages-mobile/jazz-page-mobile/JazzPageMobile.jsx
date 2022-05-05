@@ -38,7 +38,7 @@ function JazzPageMobile() {
 
 	if (isCarousel === null) {
 		return (
-			<div className="mobile-container" style={{ height: '100vh' }} id="jazz">
+			<div className="mobile-container" style={{ height: 'auto', paddingBottom: '40px' }} id="jazz">
 				<div className="m-content m-content-jazz">
 					<div className="jazz_box__title-inner r-line">
 						<span style={{ display: 'block' }} className={i18n.language === 'ru' ? 'jazz_box__title' : 'jazz_box__title-en'}>

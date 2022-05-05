@@ -148,9 +148,9 @@ function JazzPage(params) {
 				style={{ display: styles.display, width: styles.width, position: styles.position, left: styles.left, transition: styles.transition }}
 				onWheel={(e) => {
 					if (pageContext.context !== 'scroll') {
-						if (e.deltaY == 100) {
+						if (e.deltaY == 100 || e.deltaY === 3) {
 							goForwardArtist();
-						} else if (e.deltaY == -100) {
+						} else if (e.deltaY == -100 || e.deltaY === -3) {
 							goBackwardsArtist();
 						}
 					}

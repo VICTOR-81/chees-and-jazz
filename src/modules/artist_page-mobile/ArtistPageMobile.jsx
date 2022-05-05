@@ -23,7 +23,7 @@ function ArtistPageMobile(params) {
 	// });
 
 	return (
-		<div className="mobileartistpage" style={{ height: '100vh' }}>
+		<div className="mobileartistpage" style={{ height: 'auto' }}>
 			<Swiper
 				loop={true}
 				navigation={{
